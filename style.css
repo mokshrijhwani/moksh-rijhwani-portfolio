@@ -7,32 +7,39 @@
     --muted: #8c979c;
 }
 
+/* =========================================================
+   RESET
+========================================================= */
+
 * {
     box-sizing: border-box;
 }
 
 html {
     scroll-behavior: smooth;
+    background: #04080b;
 }
 
 body {
     margin: 0;
-    background: radial-gradient(
-        circle at 55% 15%,
-        #14232b,
-        #04080b 45%,
-        #010304
-    );
+    background:
+        radial-gradient(
+            circle at 55% 15%,
+            #14232b,
+            #04080b 45%,
+            #010304
+        );
     color: var(--text);
     font: 400 12px Inter, Arial, sans-serif;
+    min-height: 100vh;
 }
 
-body:before {
+body::before {
     content: "";
     position: fixed;
     inset: 0;
     pointer-events: none;
-    opacity: .13;
+    opacity: 0.13;
     background-image:
         linear-gradient(#fff1 1px, transparent 1px),
         linear-gradient(90deg, #fff1 1px, transparent 1px);
@@ -40,10 +47,19 @@ body:before {
     z-index: -1;
 }
 
+a {
+    color: inherit;
+}
+
+button,
+input,
+textarea {
+    font-family: inherit;
+}
 
 /* =========================================================
    LOADER
-   ========================================================= */
+========================================================= */
 
 #loader {
     position: fixed;
@@ -55,7 +71,9 @@ body:before {
     align-items: center;
     justify-content: center;
     overflow: hidden;
-    transition: opacity .85s ease, visibility .85s ease;
+    transition:
+        opacity 0.85s ease,
+        visibility 0.85s ease;
 }
 
 #loader.done {
@@ -64,20 +82,31 @@ body:before {
     pointer-events: none;
 }
 
-#loader:before {
+#loader::before {
     content: "";
     position: absolute;
     inset: 0;
     background:
-        radial-gradient(circle at 50% 45%, #ff6a0017, transparent 28%),
+        radial-gradient(
+            circle at 50% 45%,
+            #ff6a0017,
+            transparent 28%
+        ),
         linear-gradient(
             90deg,
             transparent 49.9%,
             #ff6a0010 50%,
             transparent 50.1%
         ),
-        linear-gradient(#ff6a0009 1px, transparent 1px),
-        linear-gradient(90deg, #ff6a0009 1px, transparent 1px);
+        linear-gradient(
+            #ff6a0009 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            #ff6a0009 1px,
+            transparent 1px
+        );
     background-size:
         auto,
         auto,
@@ -92,7 +121,7 @@ body:before {
     );
 }
 
-#loader:after {
+#loader::after {
     content: "";
     position: absolute;
     left: -20%;
@@ -107,29 +136,30 @@ body:before {
     );
     box-shadow: 0 0 30px #ff6a00;
     animation: loaderSweep 2.8s ease-in-out infinite;
-    opacity: .55;
+    opacity: 0.55;
 }
 
 .loader-noise {
     position: absolute;
     inset: -50%;
-    opacity: .035;
+    opacity: 0.035;
     background-image: repeating-radial-gradient(
         #fff 0 1px,
         transparent 1px 4px
     );
-    animation: noiseMove .2s steps(2) infinite;
+    animation: noiseMove 0.2s steps(2) infinite;
 }
 
 .loader-corner {
     position: absolute;
     top: 28px;
-    font: 600 9px "Barlow Condensed";
+    font: 600 9px "Barlow Condensed", Arial, sans-serif;
     letter-spacing: 2px;
     color: #7e898d;
+    z-index: 3;
 }
 
-.loader-corner:before {
+.loader-corner::before {
     content: "";
     display: inline-block;
     width: 18px;
@@ -155,12 +185,12 @@ body:before {
 }
 
 .loader-kicker {
-    font: 600 10px "Barlow Condensed";
+    font: 600 10px "Barlow Condensed", Arial, sans-serif;
     letter-spacing: 3px;
     color: #7f898d;
     opacity: 0;
     transform: translateY(12px);
-    animation: loaderUp .6s .15s forwards;
+    animation: loaderUp 0.6s 0.15s forwards;
 }
 
 .loader-kicker span {
@@ -174,11 +204,15 @@ body:before {
 
 .loader-logo {
     margin-top: 18px;
-    font: 800 clamp(58px, 9vw, 105px)/.8 "Barlow Condensed";
+    font: 800 clamp(58px, 9vw, 105px) / 0.8
+        "Barlow Condensed", Arial, sans-serif;
     letter-spacing: -3px;
     opacity: 0;
-    transform: scale(.8);
-    animation: logoIn .75s .35s cubic-bezier(.2, .8, .2, 1) forwards;
+    transform: scale(0.8);
+    animation:
+        logoIn 0.75s 0.35s
+        cubic-bezier(0.2, 0.8, 0.2, 1)
+        forwards;
 }
 
 .loader-logo span {
@@ -190,7 +224,8 @@ body:before {
     justify-content: center;
     gap: 14px;
     margin-top: 22px;
-    font: 800 clamp(42px, 7vw, 78px)/.85 "Barlow Condensed";
+    font: 800 clamp(42px, 7vw, 78px) / 0.85
+        "Barlow Condensed", Arial, sans-serif;
     letter-spacing: -1px;
     overflow: hidden;
 }
@@ -198,25 +233,25 @@ body:before {
 .loader-name span {
     opacity: 0;
     transform: translateY(100%);
-    animation: nameIn .65s forwards;
+    animation: nameIn 0.65s forwards;
 }
 
 .loader-name span:first-child {
-    animation-delay: .62s;
+    animation-delay: 0.62s;
 }
 
 .loader-name span:last-child {
     color: var(--orange);
-    animation-delay: .76s;
+    animation-delay: 0.76s;
 }
 
 .loader-role {
     margin-top: 18px;
-    font: 600 11px "Barlow Condensed";
+    font: 600 11px "Barlow Condensed", Arial, sans-serif;
     letter-spacing: 2px;
     color: #c4cbcd;
     opacity: 0;
-    animation: loaderUp .6s 1.02s forwards;
+    animation: loaderUp 0.6s 1.02s forwards;
 }
 
 .loader-progress {
@@ -226,7 +261,7 @@ body:before {
     background: #1a2429;
     overflow: hidden;
     opacity: 0;
-    animation: fadeIn .4s 1.12s forwards;
+    animation: fadeIn 0.4s 1.12s forwards;
 }
 
 .loader-progress-bar {
@@ -234,7 +269,10 @@ body:before {
     width: 0;
     background: var(--orange);
     box-shadow: 0 0 15px #ff6a00;
-    animation: progressFill 2.1s 1.15s cubic-bezier(.65, 0, .2, 1) forwards;
+    animation:
+        progressFill 2.1s 1.15s
+        cubic-bezier(0.65, 0, 0.2, 1)
+        forwards;
 }
 
 .loader-status {
@@ -242,11 +280,11 @@ body:before {
     margin: auto;
     display: flex;
     justify-content: space-between;
-    font: 600 8px "Barlow Condensed";
+    font: 600 8px "Barlow Condensed", Arial, sans-serif;
     letter-spacing: 2px;
     color: #687479;
     opacity: 0;
-    animation: fadeIn .4s 1.2s forwards;
+    animation: fadeIn 0.4s 1.2s forwards;
 }
 
 .loader-status b {
@@ -262,22 +300,21 @@ body:before {
     display: flex;
     gap: 22px;
     white-space: nowrap;
-    font: 600 8px "Barlow Condensed";
+    font: 600 8px "Barlow Condensed", Arial, sans-serif;
     letter-spacing: 2px;
     color: #59656a;
     z-index: 2;
 }
 
-.loader-footer span:not(:last-child):after {
+.loader-footer span:not(:last-child)::after {
     content: " /";
     color: var(--orange);
     margin-left: 18px;
 }
 
-
 /* =========================================================
    LOADER ANIMATIONS
-   ========================================================= */
+========================================================= */
 
 @keyframes loaderUp {
     to {
@@ -325,12 +362,12 @@ body:before {
 
     35%,
     65% {
-        opacity: .7;
+        opacity: 0.7;
     }
 
     50% {
         transform: translateY(180px);
-        opacity: .35;
+        opacity: 0.35;
     }
 }
 
@@ -359,30 +396,32 @@ body:before {
 #loader.done .loader-center {
     transform: scale(1.04);
     opacity: 0;
-    transition: .55s ease;
+    transition: 0.55s ease;
 }
 
 #loader.done .loader-footer,
 #loader.done .loader-corner {
     opacity: 0;
-    transition: .35s ease;
+    transition: 0.35s ease;
 }
-
 
 /* =========================================================
    GLOBAL
-   ========================================================= */
+========================================================= */
 
 .brand span,
 em,
-.head h2:before {
+.head h2::before {
     color: var(--orange);
 }
 
+em {
+    font-style: normal;
+}
 
 /* =========================================================
    HEADER
-   ========================================================= */
+========================================================= */
 
 header {
     height: 70px;
@@ -399,9 +438,10 @@ header {
 }
 
 .brand {
-    font: 800 25px "Barlow Condensed";
+    font: 800 25px "Barlow Condensed", Arial, sans-serif;
     color: #fff;
     text-decoration: none;
+    white-space: nowrap;
 }
 
 nav {
@@ -414,10 +454,14 @@ nav {
 nav a,
 .download,
 .btn {
-    font: 600 10px "Barlow Condensed";
-    letter-spacing: .5px;
+    font: 600 10px "Barlow Condensed", Arial, sans-serif;
+    letter-spacing: 0.5px;
     color: #cbd0d2;
     text-decoration: none;
+}
+
+nav a {
+    transition: color 0.2s ease;
 }
 
 nav a:hover {
@@ -428,6 +472,23 @@ nav a:hover {
 .btn {
     border: 1px solid #70401f;
     padding: 10px 15px;
+}
+
+.download {
+    white-space: nowrap;
+}
+
+.btn {
+    display: inline-block;
+    cursor: pointer;
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease,
+        color 0.2s ease;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
 }
 
 .hot {
@@ -442,12 +503,12 @@ nav a:hover {
     color: #fff;
     border: 0;
     font-size: 22px;
+    cursor: pointer;
 }
-
 
 /* =========================================================
    MAIN / PANELS
-   ========================================================= */
+========================================================= */
 
 main,
 footer {
@@ -457,11 +518,12 @@ footer {
 
 .panel {
     position: relative;
-    background: linear-gradient(
-        145deg,
-        #091116,
-        #030608
-    );
+    background:
+        linear-gradient(
+            145deg,
+            #091116,
+            #030608
+        );
     border: 1px solid #263238;
     margin: 12px 0;
     overflow: hidden;
@@ -472,8 +534,8 @@ footer {
     display: block;
     border-bottom: 1px solid #222c31;
     padding: 9px 13px;
-    font: 500 12px "Barlow Condensed";
-    letter-spacing: .7px;
+    font: 500 12px "Barlow Condensed", Arial, sans-serif;
+    letter-spacing: 0.7px;
     color: #aeb7ba;
 }
 
@@ -483,10 +545,9 @@ footer {
     margin-right: 7px;
 }
 
-
 /* =========================================================
    PAGE 01 — HOME / HERO
-   ========================================================= */
+========================================================= */
 
 .heroGrid {
     display: grid;
@@ -495,25 +556,29 @@ footer {
     height: 390px;
 }
 
-.copy {
+.heroGrid .copy {
     padding: 38px 28px;
 }
 
 .copy > small,
-.trading > div > small {
+.tradingCopy > small {
     letter-spacing: 2px;
     color: #aab2b5;
-    font: 600 10px "Barlow Condensed";
+    font: 600 10px "Barlow Condensed", Arial, sans-serif;
 }
 
+.heroGrid h1,
 .hero h1 {
-    font: 800 clamp(62px, 6vw, 96px)/.78 "Barlow Condensed";
+    font: 800 clamp(62px, 6vw, 96px) / 0.78
+        "Barlow Condensed", Arial, sans-serif;
     margin: 14px 0 12px;
     letter-spacing: -2px;
 }
 
+.heroGrid h2,
 .hero h2 {
-    font: 600 17px/1 "Barlow Condensed";
+    font: 600 17px / 1
+        "Barlow Condensed", Arial, sans-serif;
     margin: 0;
 }
 
@@ -532,18 +597,19 @@ footer {
 }
 
 .stats b {
-    font: 600 25px "Barlow Condensed";
+    font: 600 25px "Barlow Condensed", Arial, sans-serif;
     display: block;
 }
 
 .stats small {
-    font: 8px "Barlow Condensed";
+    font: 8px "Barlow Condensed", Arial, sans-serif;
     color: #aeb7ba;
 }
 
-.copy > .btn {
-    display: inline-block;
-    margin-right: 6px;
+.heroButtons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
 }
 
 .copy > p {
@@ -552,11 +618,10 @@ footer {
     margin-top: 16px;
 }
 
-
 /* =========================================================
    PAGE 01 — HERO VISUAL
    IMAGE REMOVED
-   ========================================================= */
+========================================================= */
 
 .heroArt {
     position: relative;
@@ -606,7 +671,7 @@ footer {
     height: 85px;
 }
 
-.chart:after {
+.chart::after {
     content: "";
     position: absolute;
     inset: 20px;
@@ -632,14 +697,13 @@ footer {
         0 0 0 28px #ff6a0005;
 }
 
-
 /* =========================================================
    PAGE 02 — ABOUT
-   ========================================================= */
+========================================================= */
 
 .aboutGrid {
     display: grid;
-    grid-template-columns: 1fr .8fr;
+    grid-template-columns: 1fr 0.8fr;
     min-height: 330px;
     height: 330px;
 }
@@ -650,7 +714,8 @@ footer {
 
 .aboutGrid h2,
 .trading h2 {
-    font: 600 34px/.92 "Barlow Condensed";
+    font: 600 34px / 0.92
+        "Barlow Condensed", Arial, sans-serif;
     margin: 10px 0;
 }
 
@@ -668,12 +733,11 @@ footer {
     margin-top: 10px;
 }
 
-.aboutGrid li:before {
+.aboutGrid li::before {
     content: "⊙";
     color: var(--orange);
     margin-right: 8px;
 }
-
 
 /* PAGE 02 IMAGE */
 
@@ -695,28 +759,26 @@ footer {
     display: block;
 }
 
-
 /* Remove repetitive information box */
 
 .aboutGrid aside {
     display: none !important;
 }
 
-
 /* =========================================================
    PAGE 03 — EXPERIENCE
-   ========================================================= */
+========================================================= */
 
 .head {
     padding: 25px 20px 10px;
 }
 
 .head h2 {
-    font: 700 25px "Barlow Condensed";
+    font: 700 25px "Barlow Condensed", Arial, sans-serif;
     margin: 0;
 }
 
-.head h2:before {
+.head h2::before {
     content: "";
     display: inline-block;
     width: 20px;
@@ -753,23 +815,23 @@ footer {
     display: grid;
     place-items: center;
     color: var(--orange);
-    font: 600 12px "Barlow Condensed";
+    font: 600 12px "Barlow Condensed", Arial, sans-serif;
 }
 
 .timeline h3 {
-    font: 600 12px "Barlow Condensed";
+    font: 600 12px "Barlow Condensed", Arial, sans-serif;
     margin: 0;
 }
 
 .timeline em {
-    font: 600 10px "Barlow Condensed";
+    font: 600 10px "Barlow Condensed", Arial, sans-serif;
     font-style: normal;
 }
 
 .timeline small {
     display: block;
     color: #788387;
-    font: 9px "Barlow Condensed";
+    font: 9px "Barlow Condensed", Arial, sans-serif;
 }
 
 .timeline p {
@@ -783,7 +845,7 @@ footer {
     display: grid;
     place-items: center;
     border-left: 1px solid #29343a;
-    font: 800 17px "Barlow Condensed";
+    font: 800 17px "Barlow Condensed", Arial, sans-serif;
     text-align: center;
 }
 
@@ -797,10 +859,9 @@ footer {
     font-size: 24px;
 }
 
-
 /* =========================================================
    PAGE 04 — SKILLS
-   ========================================================= */
+========================================================= */
 
 .skills {
     display: grid;
@@ -815,7 +876,7 @@ footer {
 }
 
 .skills h3 {
-    font: 600 10px "Barlow Condensed";
+    font: 600 10px "Barlow Condensed", Arial, sans-serif;
     color: var(--orange);
     margin: 0 0 10px;
 }
@@ -839,16 +900,15 @@ footer {
 }
 
 .skills span b {
-    font: 600 9px "Barlow Condensed";
+    font: 600 9px "Barlow Condensed", Arial, sans-serif;
     color: #cbd1d3;
     margin-top: 6px;
     text-align: center;
 }
 
-
 /* =========================================================
    PAGE 05 — PROJECTS
-   ========================================================= */
+========================================================= */
 
 .projects {
     display: grid;
@@ -865,16 +925,17 @@ footer {
 
 .projects article > b {
     color: var(--orange);
-    font: 700 15px "Barlow Condensed";
+    font: 700 15px "Barlow Condensed", Arial, sans-serif;
 }
 
 .projects h3 {
-    font: 600 13px/1.05 "Barlow Condensed";
+    font: 600 13px / 1.05
+        "Barlow Condensed", Arial, sans-serif;
     margin: 5px 0;
 }
 
 .projects em {
-    font: 9px "Barlow Condensed";
+    font: 9px "Barlow Condensed", Arial, sans-serif;
     font-style: normal;
 }
 
@@ -897,7 +958,7 @@ footer {
 
 .projects article > div small {
     display: block;
-    font: 8px "Barlow Condensed";
+    font: 8px "Barlow Condensed", Arial, sans-serif;
     color: #7e898d;
 }
 
@@ -907,10 +968,15 @@ footer {
     line-height: 1.45;
 }
 
+.projects article a {
+    color: var(--orange);
+    font: 600 9px "Barlow Condensed", Arial, sans-serif;
+    text-decoration: none;
+}
 
 /* =========================================================
    PAGE 07 — IMPACT
-   ========================================================= */
+========================================================= */
 
 .impact {
     display: grid;
@@ -930,11 +996,11 @@ footer {
 }
 
 .impact b {
-    font: 600 39px "Barlow Condensed";
+    font: 600 39px "Barlow Condensed", Arial, sans-serif;
 }
 
 .impact small {
-    font: 8px "Barlow Condensed";
+    font: 8px "Barlow Condensed", Arial, sans-serif;
     color: #8d989c;
 }
 
@@ -956,44 +1022,62 @@ footer {
 .impactBottom strong {
     display: block;
     color: #fff;
-    font: 600 25px "Barlow Condensed";
+    font: 600 25px "Barlow Condensed", Arial, sans-serif;
     margin-top: 4px;
 }
 
-
 /* =========================================================
    PAGE 08 — TRADING
-   ========================================================= */
+========================================================= */
 
 .trading {
     display: grid;
-    grid-template-columns: .55fr 1.45fr;
+    grid-template-columns: 0.55fr 1.45fr;
     gap: 20px;
     padding: 25px 30px 32px;
+}
+
+.tradingCopy {
+    min-width: 0;
+}
+
+.tradingCopy h2 {
+    font: 600 45px / 0.9
+        "Barlow Condensed", Arial, sans-serif;
+    margin: 10px 0 15px;
+}
+
+.tradingCopy p {
+    color: #9ca6aa;
+    line-height: 1.55;
+    font-size: 10px;
 }
 
 .mini {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 6px;
+    margin-top: 18px;
 }
 
 .mini span {
     border: 1px solid #3b3029;
     padding: 10px;
-    font: 8px "Barlow Condensed";
+    font: 8px "Barlow Condensed", Arial, sans-serif;
     text-align: center;
 }
 
 .mini b {
     display: block;
-    font: 600 25px "Barlow Condensed";
+    font: 600 25px "Barlow Condensed", Arial, sans-serif;
+    margin-bottom: 3px;
 }
 
 .market {
     min-height: 300px;
     border: 1px solid #29353a;
     position: relative;
+    overflow: hidden;
     background:
         repeating-linear-gradient(
             0deg,
@@ -1005,6 +1089,22 @@ footer {
             transparent 0 65px,
             #ff6a0009 66px 67px
         );
+}
+
+.marketHeader {
+    position: absolute;
+    left: 15px;
+    top: 12px;
+    right: 15px;
+    display: flex;
+    justify-content: space-between;
+    color: #d8dddf;
+    font: 600 10px "Barlow Condensed", Arial, sans-serif;
+    z-index: 2;
+}
+
+.marketHeader span {
+    color: var(--orange);
 }
 
 .candles {
@@ -1052,21 +1152,29 @@ footer {
     height: 2px;
     background: var(--orange);
     transform: rotate(-10deg);
+    box-shadow: 0 0 8px #ff6a00;
 }
 
-.market > small {
+.marketScale {
     position: absolute;
     right: 10px;
-    top: 15px;
+    top: 65px;
     color: #778287;
-    font: 8px "Barlow Condensed";
-    line-height: 2.8;
+    font: 8px / 2.8 "Barlow Condensed", Arial, sans-serif;
+    text-align: right;
 }
 
+.marketBottom {
+    position: absolute;
+    bottom: 12px;
+    left: 15px;
+    color: #778287;
+    font: 8px "Barlow Condensed", Arial, sans-serif;
+}
 
 /* =========================================================
    PAGE 09 — CONTACT
-   ========================================================= */
+========================================================= */
 
 .contact {
     display: grid;
@@ -1076,7 +1184,8 @@ footer {
 }
 
 .contact h2 {
-    font: 700 47px/.86 "Barlow Condensed";
+    font: 700 47px / 0.86
+        "Barlow Condensed", Arial, sans-serif;
     margin: 5px 0;
 }
 
@@ -1088,6 +1197,7 @@ footer {
 .social {
     display: flex;
     gap: 7px;
+    margin-top: 15px;
 }
 
 .social a {
@@ -1099,6 +1209,14 @@ footer {
     place-items: center;
     color: #fff;
     text-decoration: none;
+    transition:
+        border-color 0.2s ease,
+        color 0.2s ease;
+}
+
+.social a:hover {
+    border-color: var(--orange);
+    color: var(--orange);
 }
 
 .contact form {
@@ -1108,11 +1226,18 @@ footer {
 
 .contact input,
 .contact textarea {
+    width: 100%;
     background: #050a0d;
     border: 1px solid #2a363b;
     color: #fff;
     padding: 12px;
-    font: 10px Inter;
+    font: 10px Inter, Arial, sans-serif;
+    outline: none;
+}
+
+.contact input:focus,
+.contact textarea:focus {
+    border-color: var(--orange);
 }
 
 .contact textarea {
@@ -1120,10 +1245,14 @@ footer {
     resize: vertical;
 }
 
+.contact button {
+    border: 1px solid var(--orange);
+    cursor: pointer;
+}
 
 /* =========================================================
    COMPLETE
-   ========================================================= */
+========================================================= */
 
 .complete > div {
     min-height: 330px;
@@ -1135,7 +1264,7 @@ footer {
 }
 
 .complete h2 {
-    font: 800 58px "Barlow Condensed";
+    font: 800 58px "Barlow Condensed", Arial, sans-serif;
     color: var(--orange);
     margin: 0;
 }
@@ -1154,13 +1283,12 @@ footer {
 }
 
 .complete p {
-    font: 600 11px "Barlow Condensed";
+    font: 600 11px "Barlow Condensed", Arial, sans-serif;
 }
-
 
 /* =========================================================
    FOOTER
-   ========================================================= */
+========================================================= */
 
 footer {
     display: grid;
@@ -1178,26 +1306,31 @@ footer div {
     border-right: 1px solid #263238;
 }
 
+footer div:last-child {
+    border-right: 0;
+}
+
 footer b {
     width: 100%;
-    font: 600 10px "Barlow Condensed";
+    font: 600 10px "Barlow Condensed", Arial, sans-serif;
     letter-spacing: 1px;
 }
 
 footer span {
-    font: 9px "Barlow Condensed";
+    font: 9px "Barlow Condensed", Arial, sans-serif;
     color: #aab3b6;
 }
 
-
 /* =========================================================
    REVEAL ANIMATION
-   ========================================================= */
+========================================================= */
 
 .reveal {
     opacity: 0;
     transform: translateY(25px);
-    transition: .7s;
+    transition:
+        opacity 0.7s ease,
+        transform 0.7s ease;
 }
 
 .reveal.show {
@@ -1205,10 +1338,9 @@ footer span {
     transform: none;
 }
 
-
 /* =========================================================
    TABLET
-   ========================================================= */
+========================================================= */
 
 @media (max-width: 900px) {
 
@@ -1222,15 +1354,16 @@ footer span {
         flex-direction: column;
         padding: 20px;
         gap: 18px;
+        border-bottom: 1px solid #263137;
+    }
+
+    nav.open {
+        display: flex;
     }
 
     .menu {
         display: block;
         margin-left: auto;
-    }
-
-    nav.open {
-        display: flex;
     }
 
     .download {
@@ -1296,12 +1429,20 @@ footer span {
     footer {
         grid-template-columns: 1fr;
     }
-}
 
+    footer div {
+        border-right: 0;
+        border-bottom: 1px solid #263238;
+    }
+
+    footer div:last-child {
+        border-bottom: 0;
+    }
+}
 
 /* =========================================================
    MOBILE
-   ========================================================= */
+========================================================= */
 
 @media (max-width: 520px) {
 
@@ -1310,10 +1451,16 @@ footer span {
         width: calc(100% - 10px);
     }
 
-    .copy {
+    header {
+        padding: 0 16px;
+    }
+
+    .copy,
+    .heroGrid .copy {
         padding: 30px 18px;
     }
 
+    .heroGrid h1,
     .hero h1 {
         font-size: 70px;
     }
@@ -1322,7 +1469,11 @@ footer span {
         grid-template-columns: 1fr 1fr;
     }
 
-    .copy > .btn {
+    .heroButtons {
+        display: block;
+    }
+
+    .heroButtons .btn {
         display: block;
         text-align: center;
         margin: 7px 0;
@@ -1332,12 +1483,36 @@ footer span {
         grid-template-columns: 1fr;
     }
 
+    .impact {
+        grid-template-columns: 1fr 1fr;
+        padding-left: 18px;
+        padding-right: 18px;
+    }
+
     .impact b {
         font-size: 32px;
     }
 
+    .impactBottom {
+        grid-template-columns: 1fr 1fr;
+        padding-left: 18px;
+        padding-right: 18px;
+    }
+
     .mini {
         grid-template-columns: 1fr;
+    }
+
+    .trading {
+        padding: 22px 18px 25px;
+    }
+
+    .tradingCopy h2 {
+        font-size: 42px;
+    }
+
+    .market {
+        min-height: 260px;
     }
 
     .contact {
@@ -1363,6 +1538,19 @@ footer span {
 
     .aboutPhoto img {
         width: 65%;
+    }
+
+    .timeline {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    .timeline article {
+        gap: 10px;
+    }
+
+    .timeline h3 {
+        font-size: 11px;
     }
 
     .loader-corner {
@@ -1404,7 +1592,48 @@ footer span {
         font-size: 7px;
     }
 
-    .loader-footer span:not(:last-child):after {
+    .loader-footer span:not(:last-child)::after {
         margin-left: 8px;
+    }
+}
+
+/* =========================================================
+   VERY SMALL PHONES
+========================================================= */
+
+@media (max-width: 380px) {
+
+    .brand {
+        font-size: 22px;
+    }
+
+    .panel > label {
+        font-size: 10px;
+    }
+
+    .heroGrid h1,
+    .hero h1 {
+        font-size: 58px;
+    }
+
+    .stats b {
+        font-size: 22px;
+    }
+
+    .aboutGrid h2,
+    .trading h2 {
+        font-size: 29px;
+    }
+
+    .contact h2 {
+        font-size: 34px;
+    }
+
+    .impact {
+        gap: 8px;
+    }
+
+    .impact b {
+        font-size: 27px;
     }
 }
