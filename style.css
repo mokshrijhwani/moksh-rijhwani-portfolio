@@ -1,21 +1,24 @@
-```css
-/* FULL PORTFOLIO CSS — PAGE 1 FULL-WIDTH CENTERED */
-
-/* =========================
-   ROOT / GLOBAL
-   ========================= */
-
 :root{
-  --bg:#04080b;
-  --panel:#071016;
-  --line:#29353b;
-  --orange:#ff6a00;
-  --text:#f4f5f5;
-  --muted:#8c979c;
+  --orange:#ff5a1f;
+  --orange-light:#ff7a3d;
+  --orange-dark:#c83f0e;
+  --black:#030608;
+  --dark:#050a0d;
+  --dark-2:#091116;
+  --panel:#0a1115;
+  --border:#263238;
+  --border-orange:#5b3020;
+  --text:#f2f4f5;
+  --muted:#aeb7ba;
+  --muted-dark:#7f898d;
+  --green:#67d68b;
+  --red:#ff5b5b;
 }
 
 *{
   box-sizing:border-box;
+  margin:0;
+  padding:0;
 }
 
 html{
@@ -23,264 +26,183 @@ html{
 }
 
 body{
-  margin:0;
-  background:radial-gradient(
-    circle at 55% 15%,
-    #14232b,
-    #04080b 45%,
-    #010304
-  );
+  background:
+    radial-gradient(circle at 15% 10%,rgba(255,90,31,.055),transparent 28%),
+    radial-gradient(circle at 85% 65%,rgba(255,90,31,.035),transparent 25%),
+    #020506;
   color:var(--text);
-  font:400 12px Inter,Arial,sans-serif;
+  font-family:"Barlow Condensed",Arial,sans-serif;
+  overflow-x:hidden;
 }
 
-body:before{
+body::before{
   content:"";
   position:fixed;
   inset:0;
   pointer-events:none;
-  opacity:.13;
+  z-index:9999;
+  opacity:.025;
   background-image:
-    linear-gradient(#fff1 1px,transparent 1px),
-    linear-gradient(90deg,#fff1 1px,transparent 1px);
-  background-size:42px 42px;
-  z-index:-1;
+    linear-gradient(rgba(255,255,255,.4) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.4) 1px,transparent 1px);
+  background-size:4px 4px;
 }
 
+a{
+  color:inherit;
+  text-decoration:none;
+}
+
+button,
+input,
+textarea{
+  font:inherit;
+}
+
+img{
+  max-width:100%;
+  display:block;
+}
 
 /* =========================
    LOADER
-   ========================= */
+========================= */
 
-#loader{
+.loader{
   position:fixed;
   inset:0;
-  background:#020405;
-  color:#f4f5f5;
-  z-index:1000;
+  background:#020506;
+  z-index:10000;
   display:flex;
   align-items:center;
   justify-content:center;
-  overflow:hidden;
-  transition:opacity .85s ease,visibility .85s ease;
+  flex-direction:column;
+  gap:12px;
 }
 
-#loader.done{
-  opacity:0;
-  visibility:hidden;
-  pointer-events:none;
-}
-
-.loader-noise{
-  position:absolute;
-  inset:-50%;
-  opacity:.035;
-  background-image:repeating-radial-gradient(
-    #fff 0 1px,
-    transparent 1px 4px
-  );
-  animation:noiseMove .2s steps(2) infinite;
-}
-
-.loader-corner{
-  position:absolute;
-  top:28px;
-  font:600 9px "Barlow Condensed";
-  letter-spacing:2px;
-  color:#7e898d;
-}
-
-.loader-corner:before{
-  content:"";
-  display:inline-block;
-  width:18px;
-  height:1px;
-  background:var(--orange);
-  vertical-align:middle;
-  margin-right:7px;
-}
-
-.top-left{
-  left:32px;
-}
-
-.top-right{
-  right:32px;
-}
-
-.loader-center{
-  position:relative;
-  width:min(720px,88vw);
-  text-align:center;
-  z-index:2;
-}
-
-.loader-kicker{
-  font:600 10px "Barlow Condensed";
+.loader b{
+  color:var(--orange);
+  font-size:14px;
   letter-spacing:3px;
-  color:#7f898d;
 }
 
-.loader-kicker span{
-  display:inline-block;
-  width:26px;
-  height:1px;
-  background:var(--orange);
-  vertical-align:middle;
-  margin:0 10px;
-}
-
-.loader-logo{
-  margin-top:18px;
-  font:800 clamp(58px,9vw,105px)/.8 "Barlow Condensed";
-  letter-spacing:-3px;
-}
-
-.loader-logo span,
-.loader-name span:last-child{
-  color:var(--orange);
-}
-
-.loader-name{
-  display:flex;
-  justify-content:center;
-  gap:14px;
-  margin-top:22px;
-  font:800 clamp(42px,7vw,78px)/.85 "Barlow Condensed";
-  letter-spacing:-1px;
-}
-
-.loader-role{
-  margin-top:18px;
-  font:600 11px "Barlow Condensed";
-  letter-spacing:2px;
-  color:#c4cbcd;
-}
-
-.loader-progress{
+.loader span{
+  width:180px;
   height:2px;
-  width:min(420px,70vw);
-  margin:34px auto 10px;
-  background:#1a2429;
+  background:#222b2f;
+  overflow:hidden;
 }
 
-.loader-progress-bar{
+.loader span::after{
+  content:"";
+  display:block;
   height:100%;
-  width:0;
+  width:45%;
   background:var(--orange);
-  animation:progressFill 2.1s 1.15s cubic-bezier(.65,0,.2,1) forwards;
+  animation:loading 1.4s infinite ease-in-out;
 }
 
-.loader-status{
-  width:min(420px,70vw);
-  margin:auto;
-  display:flex;
-  justify-content:space-between;
-  font:600 8px "Barlow Condensed";
-  letter-spacing:2px;
-  color:#687479;
+@keyframes loading{
+  0%{transform:translateX(-120%)}
+  100%{transform:translateX(420%)}
 }
-
-.loader-status b{
-  color:var(--orange);
-}
-
-.loader-footer{
-  position:absolute;
-  bottom:28px;
-  left:50%;
-  transform:translateX(-50%);
-  display:flex;
-  gap:22px;
-  white-space:nowrap;
-  font:600 8px "Barlow Condensed";
-  letter-spacing:2px;
-  color:#59656a;
-}
-
-@keyframes progressFill{
-  to{
-    width:100%;
-  }
-}
-
-@keyframes noiseMove{
-  50%{
-    transform:translate(-1%,2%);
-  }
-}
-
 
 /* =========================
    HEADER
-   ========================= */
-
-.brand span,
-em,
-.head h2:before{
-  color:var(--orange);
-}
+========================= */
 
 header{
-  height:70px;
   position:sticky;
   top:0;
-  z-index:50;
-  background:#04080bea;
-  backdrop-filter:blur(12px);
-  border-bottom:1px solid #263137;
+  z-index:1000;
+  width:100%;
+  background:rgba(2,5,6,.92);
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid #20292d;
+}
+
+.headerInner{
+  width:min(1520px,calc(100% - 24px));
+  min-height:68px;
+  margin:auto;
   display:flex;
   align-items:center;
-  padding:0 25px;
   gap:25px;
 }
 
-.brand{
+.logo{
+  color:var(--orange);
   font:800 25px "Barlow Condensed";
+  letter-spacing:-1px;
+  transition:.25s;
+}
+
+.logo:hover{
   color:#fff;
-  text-decoration:none;
+  text-shadow:0 0 18px rgba(255,90,31,.45);
 }
 
 nav{
   display:flex;
+  align-items:center;
   gap:24px;
-  justify-content:center;
-  flex:1;
+  margin-left:auto;
 }
 
-nav a,
-.download,
-.btn{
-  font:600 10px "Barlow Condensed";
-  letter-spacing:.5px;
-  color:#cbd0d2;
-  text-decoration:none;
+nav a{
+  position:relative;
+  color:#aab2b5;
+  font:600 11px "Barlow Condensed";
+  letter-spacing:1px;
+  transition:.25s;
 }
 
-.download,
-.btn{
-  border:1px solid #70401f;
-  padding:10px 15px;
-}
-
-.hot{
+nav a::after{
+  content:"";
+  position:absolute;
+  left:0;
+  bottom:-7px;
+  width:0;
+  height:2px;
   background:var(--orange);
-  color:#070707;
-  border-color:var(--orange);
+  transition:.25s;
+}
+
+nav a:hover{
+  color:#fff;
+}
+
+nav a:hover::after{
+  width:100%;
+}
+
+.download{
+  border:1px solid var(--orange);
+  color:var(--orange);
+  padding:8px 13px;
+  font:600 10px "Barlow Condensed";
+  letter-spacing:.8px;
+  transition:.25s;
+}
+
+.download:hover{
+  background:var(--orange);
+  color:#050708;
+  box-shadow:0 0 22px rgba(255,90,31,.22);
 }
 
 .menu{
   display:none;
   background:none;
-  color:#fff;
   border:0;
-  font-size:22px;
+  color:var(--orange);
+  font-size:23px;
+  cursor:pointer;
 }
 
-
 /* =========================
-   GLOBAL PANEL
-   ========================= */
+   MAIN / PANELS
+========================= */
 
 main,
 footer{
@@ -290,11 +212,29 @@ footer{
 
 .panel{
   position:relative;
-  background:linear-gradient(145deg,#091116,#030608);
+  background:
+    linear-gradient(145deg,#091116,#030608);
   border:1px solid #263238;
   margin:12px 0;
   overflow:hidden;
-  box-shadow:0 15px 50px #0008;
+  box-shadow:
+    0 15px 50px rgba(0,0,0,.5);
+}
+
+.panel::before{
+  content:"";
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:1px;
+  background:linear-gradient(
+    90deg,
+    transparent,
+    rgba(255,90,31,.55),
+    transparent
+  );
+  opacity:.45;
 }
 
 .panel>label{
@@ -312,11 +252,9 @@ footer{
   margin-right:7px;
 }
 
-
-/* =========================================================
-   PAGE 1 — HOME / HERO
-   FULL-WIDTH CENTERED CONTENT
-   ========================================================= */
+/* =========================
+   HERO / PAGE 1
+========================= */
 
 .heroGrid{
   position:relative;
@@ -328,100 +266,136 @@ footer{
   width:100%;
 }
 
-/* Full hero background */
 .heroArt{
   position:absolute;
   inset:0;
   width:100%;
   height:100%;
   min-height:450px;
-  background:#050a0d;
+  background:
+    radial-gradient(
+      circle at 50% 45%,
+      rgba(255,90,31,.12),
+      transparent 35%
+    ),
+    linear-gradient(
+      135deg,
+      #071014,
+      #030608 60%,
+      #080b0d
+    );
   z-index:0;
+}
+
+.heroArt::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    linear-gradient(
+      90deg,
+      transparent 0 49.5%,
+      rgba(255,90,31,.08) 50%,
+      transparent 50.5%
+    ),
+    linear-gradient(
+      0deg,
+      transparent 0 49.5%,
+      rgba(255,90,31,.05) 50%,
+      transparent 50.5%
+    );
+  background-size:100% 100%;
 }
 
 .heroArt *{
   display:none!important;
 }
 
-/* Full-width content container */
 .hero .copy{
   position:relative;
   z-index:2;
-
   width:100%;
   max-width:1100px;
   min-height:450px;
-
   margin:0 auto;
   padding:35px 50px;
-
   display:flex;
   flex-direction:column;
   align-items:center;
   justify-content:center;
-
   text-align:center;
 }
 
-/* Small heading */
 .hero .copy>small{
   letter-spacing:2px;
-  color:#aab2b5;
+  color:var(--orange);
   font:600 10px "Barlow Condensed";
   margin:0;
+  text-shadow:0 0 12px rgba(255,90,31,.25);
 }
 
-/* Main name */
 .hero h1{
   font:800 clamp(75px,8vw,125px)/.76 "Barlow Condensed";
   margin:18px 0 16px;
   letter-spacing:-3px;
   text-align:center;
+  color:#f4f6f7;
 }
 
-/* Job title */
+.hero h1 em{
+  color:var(--orange);
+  font-style:normal;
+  text-shadow:
+    0 0 25px rgba(255,90,31,.18);
+}
+
 .hero h2{
   font:600 20px/1.05 "Barlow Condensed";
   margin:0;
   text-align:center;
+  color:#dfe4e6;
 }
 
-/* Statistics */
 .stats{
   display:grid;
   grid-template-columns:repeat(4,1fr);
-
   width:100%;
   max-width:760px;
-
   gap:8px;
   margin:25px auto 20px;
 }
 
 .stats div{
-  border:1px solid #3b312b;
+  border:1px solid var(--border-orange);
+  background:rgba(255,90,31,.025);
   padding:14px 12px;
   min-height:70px;
-
   display:flex;
   flex-direction:column;
   justify-content:center;
   align-items:center;
-
   text-align:center;
+  transition:.25s;
+}
+
+.stats div:hover{
+  border-color:var(--orange);
+  background:rgba(255,90,31,.07);
+  transform:translateY(-2px);
 }
 
 .stats b{
   font:600 30px "Barlow Condensed";
   display:block;
+  color:var(--orange);
 }
 
 .stats small{
   font:8px "Barlow Condensed";
   color:#aeb7ba;
+  letter-spacing:.6px;
 }
 
-/* Hero buttons */
 .heroButtons{
   display:flex;
   justify-content:center;
@@ -432,12 +406,41 @@ footer{
   margin:0 auto;
 }
 
+.btn{
+  display:inline-block;
+  border:1px solid #4b5559;
+  color:#dfe4e6;
+  padding:11px 17px;
+  font:600 11px "Barlow Condensed";
+  letter-spacing:.8px;
+  transition:.25s;
+}
+
+.btn:hover{
+  border-color:var(--orange);
+  color:var(--orange);
+  transform:translateY(-2px);
+}
+
+.btn.hot{
+  background:var(--orange);
+  border-color:var(--orange);
+  color:#080a0b;
+  box-shadow:0 7px 25px rgba(255,90,31,.12);
+}
+
+.btn.hot:hover{
+  background:#ff713d;
+  border-color:#ff713d;
+  color:#050708;
+  box-shadow:0 10px 30px rgba(255,90,31,.25);
+}
+
 .hero .copy>.btn{
   display:inline-block;
   margin:0;
 }
 
-/* Location */
 .hero .copy>p{
   font-size:10px;
   color:#8f999d;
@@ -445,602 +448,660 @@ footer{
   text-align:center;
 }
 
+.hero .copy>p::first-letter{
+  color:var(--orange);
+}
 
 /* =========================
-   PAGE 2 — ABOUT
-   ========================= */
+   ABOUT / PAGE 2
+========================= */
 
 .aboutGrid{
   display:grid;
-  grid-template-columns:1fr .8fr;
-  min-height:330px;
-  height:330px;
+  grid-template-columns:1.15fr .85fr;
+  min-height:420px;
 }
 
-.aboutGrid .copy{
-  padding:25px 28px;
+.aboutCopy{
+  padding:50px 45px;
 }
 
-.aboutGrid h2,
-.trading h2{
-  font:600 34px/.92 "Barlow Condensed";
-  margin:10px 0;
-}
-
-.aboutGrid p{
-  line-height:1.5;
-  color:#aab3b7;
-  margin:8px 0;
-}
-
-.aboutGrid ul{
-  padding:0;
-  list-style:none;
-  line-height:1.7;
-  color:#d3d8da;
-  margin-top:10px;
-}
-
-.aboutGrid li:before{
-  content:"⊙";
+.aboutCopy>small{
   color:var(--orange);
-  margin-right:8px;
+  letter-spacing:2px;
+  font-size:10px;
+}
+
+.aboutCopy h2{
+  font:800 clamp(48px,5vw,78px)/.85 "Barlow Condensed";
+  margin:15px 0 22px;
+}
+
+.aboutCopy h2 span,
+.aboutCopy h2 em{
+  color:var(--orange);
+  font-style:normal;
+}
+
+.aboutCopy p{
+  color:#aeb7ba;
+  font:400 15px/1.5 "Barlow Condensed";
+  max-width:650px;
+  margin-bottom:15px;
+}
+
+.aboutCopy ul{
+  list-style:none;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:8px;
+  margin-top:25px;
+}
+
+.aboutCopy li{
+  border-left:2px solid var(--orange);
+  padding:10px 12px;
+  background:rgba(255,90,31,.035);
+  color:#d7dddf;
+  font-size:12px;
 }
 
 .aboutPhoto{
   position:relative;
-  height:290px;
-  align-self:center;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  overflow:hidden;
-  border:0!important;
-  box-shadow:none!important;
+  min-height:420px;
+  background:
+    radial-gradient(
+      circle at 50% 50%,
+      rgba(255,90,31,.12),
+      transparent 40%
+    ),
+    #05090b;
+  border-left:1px solid #20292d;
 }
 
-.aboutPhoto:before,
-.aboutPhoto:after{
-  display:none!important;
+.aboutPhoto::after{
+  content:"MR10";
+  position:absolute;
+  right:25px;
+  bottom:20px;
+  color:rgba(255,90,31,.12);
+  font:800 100px "Barlow Condensed";
 }
-
-.aboutPhoto img{
-  width:82%;
-  height:100%;
-  object-fit:contain;
-  object-position:center;
-  display:block;
-}
-
 
 /* =========================
-   PAGE 3 — EXPERIENCE
-   ========================= */
-
-.head{
-  padding:25px 20px 10px;
-}
-
-.head h2{
-  font:700 25px "Barlow Condensed";
-  margin:0;
-}
-
-.head h2:before{
-  content:"";
-  display:inline-block;
-  width:20px;
-  height:2px;
-  background:var(--orange);
-  margin:0 8px 6px 0;
-}
-
-.head p{
-  font-size:9px;
-  color:#7e898d;
-  margin:4px 0;
-}
+   EXPERIENCE / PAGE 3
+========================= */
 
 .timeline{
-  padding:5px 28px 28px;
+  padding:45px;
 }
 
-.timeline article{
-  display:grid;
-  grid-template-columns:40px 1fr 170px;
-  gap:15px;
-  align-items:center;
-  padding:17px 12px;
-  margin-bottom:9px;
-  border:1px solid #29343a;
-}
-
-.timeline article>strong{
-  border:1px solid var(--orange);
-  border-radius:50%;
-  width:30px;
-  height:30px;
-  display:grid;
-  place-items:center;
-  color:var(--orange);
-  font:600 12px "Barlow Condensed";
-}
-
-.timeline h3{
-  font:600 12px "Barlow Condensed";
-  margin:0;
-}
-
-.timeline em{
-  font:600 10px "Barlow Condensed";
-  font-style:normal;
-}
-
-.timeline small{
-  display:block;
-  color:#788387;
-  font:9px "Barlow Condensed";
-}
-
-.timeline p{
-  font-size:9px;
-  color:#8d989c;
-  line-height:1.5;
-}
-
-.logo{
-  height:60px;
-  display:grid;
-  place-items:center;
-  border-left:1px solid #29343a;
-  font:800 26px "Barlow Condensed";
-  text-align:center;
-}
-
-.clinic{
-  color:#123b70;
-}
-
-.yahoo{
-  color:#8b00ff;
-  font-size:26px;
-}
-
-.flip{
-  color:#168ee4;
-  font-size:24px;
-}
-
-
-/* =========================
-   PAGE 4 — SKILLS
-   ========================= */
-
-.skills{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:10px;
-  padding:0 18px 25px;
-}
-
-.skills>div{
-  border:1px solid #30393e;
-  padding:13px;
-}
-
-.skills h3{
-  font:600 10px "Barlow Condensed";
-  color:var(--orange);
-  margin:0 0 10px;
-}
-
-.skills p{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:7px;
-  margin:0;
-}
-
-.skills span{
-  border:1px solid #29343a;
-  min-height:70px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-}
-
-.skills span b{
-  font:600 9px "Barlow Condensed";
-  color:#cbd1d3;
-  text-align:center;
-}
-
-
-/* =========================
-   PAGE 5 — PROJECTS
-   ========================= */
-
-.projects{
-  display:grid;
-  grid-template-columns:repeat(5,1fr);
-  gap:8px;
-  padding:0 18px 28px;
-}
-
-.projects article{
-  border:1px solid #30393e;
-  padding:12px;
-  min-height:280px;
-}
-
-.projects article>b{
-  color:var(--orange);
-  font:700 15px "Barlow Condensed";
-}
-
-.projects h3{
-  font:600 13px/1.05 "Barlow Condensed";
-  margin:5px 0;
-}
-
-.projects em{
-  font:9px "Barlow Condensed";
-  font-style:normal;
-}
-
-.projects article>div{
-  height:100px;
-  margin:12px 0;
-  border:1px solid #29343a;
-  display:grid;
-  place-content:center;
-  text-align:center;
-  color:var(--orange);
-  font-size:35px;
-  background:repeating-linear-gradient(
-    0deg,
-    transparent 0 18px,
-    #ff6a000b 19px 20px
-  );
-}
-
-.projects article>div small{
-  display:block;
-  font:8px "Barlow Condensed";
-  color:#7e898d;
-}
-
-.projects p{
-  font-size:9px;
-  color:#8b969a;
-  line-height:1.45;
-}
-
-.projects article>a{
-  font:600 9px "Barlow Condensed";
-  color:var(--orange);
-}
-
-
-/* =========================
-   PAGE 6 — IMPACT
-   ========================= */
-
-.impact{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:13px;
-  padding:8px 30px 24px;
-}
-
-.impact>div{
-  aspect-ratio:1;
-  border:1px solid #4a3020;
-  border-radius:50%;
-  display:grid;
-  place-content:center;
-  text-align:center;
-}
-
-.impact b{
-  font:600 39px "Barlow Condensed";
-}
-
-.impact small{
-  font:8px "Barlow Condensed";
-  color:#8d989c;
-}
-
-.impactBottom{
-  display:grid;
-  grid-template-columns:repeat(5,1fr);
-  gap:7px;
-  padding:0 30px 28px;
-}
-
-.impactBottom span{
-  border:1px solid #29343a;
-  padding:11px;
-  text-align:center;
-  color:var(--orange);
-  font-size:7px;
-}
-
-.impactBottom strong{
-  display:block;
-  color:#fff;
-  font:600 25px "Barlow Condensed";
-  margin-top:4px;
-}
-
-
-/* =========================
-   PAGE 7 — TRADING
-   ========================= */
-
-.trading{
-  display:grid;
-  grid-template-columns:.55fr 1.45fr;
-  gap:20px;
-  padding:25px 30px 32px;
-}
-
-.mini{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:6px;
-}
-
-.mini span{
-  border:1px solid #3b3029;
-  padding:10px;
-  font:8px "Barlow Condensed";
-  text-align:center;
-}
-
-.mini b{
-  display:block;
-  font:600 25px "Barlow Condensed";
-}
-
-.market{
-  min-height:300px;
-  border:1px solid #29353a;
+.timelineItem{
   position:relative;
+  display:grid;
+  grid-template-columns:100px 1fr 160px;
+  gap:25px;
+  padding:25px 0;
+  border-bottom:1px solid #222c31;
+}
+
+.timelineItem:last-child{
+  border-bottom:0;
+}
+
+.timelineItem::before{
+  content:"";
+  position:absolute;
+  left:50px;
+  top:0;
+  bottom:0;
+  width:1px;
+  background:linear-gradient(
+    transparent,
+    var(--orange),
+    transparent
+  );
+  opacity:.4;
+}
+
+.timelineNo{
+  position:relative;
+  z-index:1;
+  color:var(--orange);
+  font:800 30px "Barlow Condensed";
+}
+
+.timelineContent h3{
+  color:#f2f4f5;
+  font:700 24px/1 "Barlow Condensed";
+  margin-bottom:8px;
+}
+
+.timelineContent h3:hover{
+  color:var(--orange);
+}
+
+.timelineContent h4{
+  color:var(--orange);
+  font:600 14px "Barlow Condensed";
+  margin-bottom:10px;
+}
+
+.timelineContent p{
+  color:#8f999d;
+  font-size:12px;
+  line-height:1.5;
+  max-width:800px;
+}
+
+.timelineDate{
+  color:#818b8f;
+  font-size:11px;
+  text-align:right;
+  letter-spacing:.5px;
+}
+
+/* =========================
+   SKILLS / PAGE 4
+========================= */
+
+.skillsGrid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:1px;
+  background:#20292d;
+}
+
+.skillBox{
+  background:#05090b;
+  padding:30px;
+  min-height:180px;
+  transition:.25s;
+}
+
+.skillBox:hover{
   background:
-    repeating-linear-gradient(
-      0deg,
-      transparent 0 40px,
-      #ff6a0009 41px 42px
-    ),
-    repeating-linear-gradient(
-      90deg,
-      transparent 0 65px,
-      #ff6a0009 66px 67px
+    linear-gradient(
+      135deg,
+      rgba(255,90,31,.07),
+      #05090b
     );
 }
 
-.marketHeader{
-  position:absolute;
-  top:12px;
-  left:15px;
-  right:15px;
+.skillBox h3{
+  color:var(--orange);
+  font:700 21px "Barlow Condensed";
+  margin-bottom:18px;
+}
+
+.skillList{
   display:flex;
-  justify-content:space-between;
-  font:600 11px "Barlow Condensed";
-}
-
-.candles{
-  position:absolute;
-  inset:35px 80px 75px 25px;
-  background:linear-gradient(
-    145deg,
-    transparent 5%,
-    #1c4d3a 5.5% 8%,
-    transparent 8.5% 22%,
-    #8c321b 22.5% 25%,
-    transparent 25.5% 40%,
-    #d7591a 40.5% 43%,
-    transparent 43.5% 62%,
-    #a6401d 62.5% 65%,
-    transparent 65.5% 80%,
-    #ef7b20 80.5% 83%,
-    transparent 83.5%
-  );
-
-  clip-path:polygon(
-    0 80%,
-    8% 72%,
-    16% 76%,
-    24% 55%,
-    32% 61%,
-    40% 44%,
-    48% 49%,
-    56% 28%,
-    64% 38%,
-    72% 20%,
-    80% 30%,
-    88% 7%,
-    100% 15%,
-    100% 100%,
-    0 100%
-  );
-}
-
-.line{
-  position:absolute;
-  left:25px;
-  right:80px;
-  top:135px;
-  height:2px;
-  background:var(--orange);
-  transform:rotate(-10deg);
-}
-
-.marketScale{
-  position:absolute;
-  right:10px;
-  top:55px;
-  color:#778287;
-  font:8px "Barlow Condensed";
-  line-height:2.2;
-}
-
-.marketBottom{
-  position:absolute;
-  left:15px;
-  bottom:12px;
-  color:#778287;
-  font:8px "Barlow Condensed";
-}
-
-
-/* =========================
-   PAGE 8 — CONTACT
-   ========================= */
-
-.contact{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:35px;
-  padding:28px;
-}
-
-.contact h2{
-  font:700 47px/.86 "Barlow Condensed";
-  margin:5px 0;
-}
-
-.contact p{
-  color:#9ca6a9;
-  font-size:10px;
-}
-
-.social{
-  display:flex;
+  flex-wrap:wrap;
   gap:7px;
 }
 
-.social a{
-  width:32px;
-  height:32px;
-  border:1px solid #4a3021;
-  border-radius:50%;
-  display:grid;
-  place-items:center;
-  color:#fff;
-  text-decoration:none;
+.skillList span{
+  border:1px solid #333d41;
+  padding:8px 11px;
+  color:#cbd2d4;
+  font-size:11px;
+  transition:.2s;
 }
 
-.contact form{
+.skillList span:hover{
+  border-color:var(--orange);
+  color:var(--orange);
+  background:rgba(255,90,31,.05);
+}
+
+/* =========================
+   PROJECTS / PAGE 5
+========================= */
+
+.projectsGrid{
   display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:10px;
+  padding:25px;
+}
+
+.projectCard{
+  position:relative;
+  min-height:230px;
+  padding:28px;
+  border:1px solid #293338;
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255,90,31,.035),
+      #05090b
+    );
+  transition:.3s;
+  overflow:hidden;
+}
+
+.projectCard::before{
+  content:"";
+  position:absolute;
+  top:0;
+  left:0;
+  width:0;
+  height:2px;
+  background:var(--orange);
+  transition:.35s;
+}
+
+.projectCard:hover{
+  border-color:#563122;
+  transform:translateY(-4px);
+  box-shadow:0 15px 35px rgba(0,0,0,.35);
+}
+
+.projectCard:hover::before{
+  width:100%;
+}
+
+.projectNo{
+  color:var(--orange);
+  font:700 12px "Barlow Condensed";
+  letter-spacing:1px;
+}
+
+.projectCard h3{
+  font:700 29px/.9 "Barlow Condensed";
+  margin:18px 0 12px;
+}
+
+.projectCard h3 span{
+  color:var(--orange);
+}
+
+.projectCard p{
+  color:#8e999d;
+  font-size:12px;
+  line-height:1.5;
+}
+
+.projectMeta{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-top:25px;
+  color:#9da7aa;
+  font-size:10px;
+}
+
+.projectMeta b{
+  color:var(--orange);
+}
+
+/* =========================
+   IMPACT / PAGE 6
+========================= */
+
+.impactGrid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:1px;
+  background:#20292d;
+}
+
+.impactBox{
+  background:#05090b;
+  padding:30px 20px;
+  text-align:center;
+  min-height:160px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  transition:.25s;
+}
+
+.impactBox:hover{
+  background:rgba(255,90,31,.045);
+}
+
+.impactBox b{
+  color:var(--orange);
+  font:800 48px "Barlow Condensed";
+  line-height:1;
+}
+
+.impactBox span{
+  color:#aab2b5;
+  font-size:11px;
+  letter-spacing:1px;
+  margin-top:8px;
+}
+
+.impactStats{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:1px;
+  background:#20292d;
+}
+
+.impactStats div{
+  background:#080d10;
+  padding:22px;
+  text-align:center;
+}
+
+.impactStats b{
+  display:block;
+  color:#f2f4f5;
+  font:700 27px "Barlow Condensed";
+}
+
+.impactStats span{
+  color:#858f93;
+  font-size:9px;
+}
+
+/* =========================
+   TRADING / PAGE 7
+========================= */
+
+.tradingGrid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  min-height:430px;
+}
+
+.tradingCopy{
+  padding:45px;
+}
+
+.tradingCopy>small{
+  color:var(--orange);
+  letter-spacing:2px;
+}
+
+.tradingCopy h2{
+  font:800 clamp(55px,6vw,90px)/.8 "Barlow Condensed";
+  margin:15px 0 20px;
+}
+
+.tradingCopy h2 span{
+  color:var(--orange);
+}
+
+.tradingCopy p{
+  color:#9da7aa;
+  font-size:13px;
+  line-height:1.55;
+  max-width:600px;
+}
+
+.tradingStats{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:7px;
+  margin-top:25px;
+}
+
+.tradingStats div{
+  border:1px solid #3b312b;
+  padding:13px;
+  text-align:center;
+}
+
+.tradingStats b{
+  display:block;
+  color:var(--orange);
+  font-size:25px;
+}
+
+.tradingStats span{
+  color:#818b8f;
+  font-size:8px;
+}
+
+.chart{
+  position:relative;
+  min-height:430px;
+  border-left:1px solid #222c31;
+  background:
+    linear-gradient(
+      rgba(255,255,255,.025) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(255,255,255,.025) 1px,
+      transparent 1px
+    ),
+    #05090b;
+  background-size:45px 45px;
+}
+
+.chart::after{
+  content:"";
+  position:absolute;
+  left:5%;
+  right:5%;
+  top:50%;
+  height:2px;
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      var(--orange),
+      #fff,
+      var(--orange),
+      transparent
+    );
+  transform:rotate(-8deg);
+  box-shadow:0 0 12px rgba(255,90,31,.35);
+}
+
+.chartLabel{
+  position:absolute;
+  top:18px;
+  left:20px;
+  color:var(--orange);
+  font-size:11px;
+  letter-spacing:1px;
+}
+
+/* =========================
+   CONTACT / PAGE 8
+========================= */
+
+.contact{
+  padding:55px 45px;
+  text-align:center;
+}
+
+.contact small{
+  color:var(--orange);
+  letter-spacing:2px;
+}
+
+.contact h2{
+  font:800 clamp(55px,7vw,105px)/.8 "Barlow Condensed";
+  margin:15px auto 20px;
+  max-width:900px;
+}
+
+.contact h2 span{
+  color:var(--orange);
+}
+
+.contact p{
+  color:#8f999d;
+  font-size:13px;
+  margin-bottom:30px;
+}
+
+.contactForm{
+  width:min(700px,100%);
+  margin:auto;
+  display:grid;
+  grid-template-columns:1fr 1fr;
   gap:8px;
 }
 
-.contact input,
-.contact textarea{
-  background:#050a0d;
-  border:1px solid #2a363b;
-  color:#fff;
-  padding:12px;
-  font:10px Inter;
+.contactForm input,
+.contactForm textarea{
+  width:100%;
+  border:1px solid #303a3e;
+  background:#05090b;
+  color:#f2f4f5;
+  padding:13px;
+  outline:none;
+  transition:.2s;
 }
 
-.contact textarea{
-  height:120px;
+.contactForm input:focus,
+.contactForm textarea:focus{
+  border-color:var(--orange);
+  box-shadow:0 0 0 1px rgba(255,90,31,.15);
+}
+
+.contactForm textarea{
+  min-height:130px;
   resize:vertical;
+  grid-column:1/-1;
 }
 
+.contactForm button{
+  grid-column:1/-1;
+  justify-self:center;
+  border:1px solid var(--orange);
+  background:var(--orange);
+  color:#050708;
+  padding:12px 25px;
+  cursor:pointer;
+  font:700 11px "Barlow Condensed";
+  letter-spacing:1px;
+  transition:.25s;
+}
+
+.contactForm button:hover{
+  background:#ff713d;
+  box-shadow:0 8px 25px rgba(255,90,31,.2);
+}
 
 /* =========================
    BACK TO TOP
-   ========================= */
-
-.backTopWrap{
-  display:flex;
-  justify-content:center;
-  padding:18px 0 10px;
-}
+========================= */
 
 .backTop{
-  border:1px solid #70401f;
-  padding:10px 18px;
-  color:#cbd0d2;
-  text-decoration:none;
-  font:600 10px "Barlow Condensed";
-  letter-spacing:.8px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:38px;
+  height:38px;
+  border:1px solid #333d41;
+  color:var(--orange);
+  transition:.25s;
 }
 
 .backTop:hover{
   background:var(--orange);
-  color:#070707;
+  color:#050708;
+  border-color:var(--orange);
 }
-
 
 /* =========================
    FOOTER
-   ========================= */
+========================= */
 
 footer{
+  padding:35px 20px 50px;
+  border-top:1px solid #222c31;
+  margin-top:20px;
+}
+
+.footerGrid{
   display:grid;
   grid-template-columns:1fr 1fr;
-  background:#060b0e;
-  border:1px solid #263238;
-  margin-bottom:20px;
+  gap:30px;
 }
 
-footer div{
-  padding:13px 18px;
-  display:flex;
-  gap:17px;
-  flex-wrap:wrap;
-  border-right:1px solid #263238;
-}
-
-footer b{
-  width:100%;
-  font:600 10px "Barlow Condensed";
+footer h3{
+  color:var(--orange);
+  font:700 15px "Barlow Condensed";
+  margin-bottom:15px;
   letter-spacing:1px;
 }
 
+footer p,
 footer span{
-  font:9px "Barlow Condensed";
-  color:#aab3b6;
+  color:#858f93;
+  font-size:10px;
+  line-height:1.7;
 }
 
+.techList,
+.coreList{
+  display:flex;
+  flex-wrap:wrap;
+  gap:7px;
+}
+
+.techList span,
+.coreList span{
+  border:1px solid #2c363a;
+  padding:6px 9px;
+  color:#aeb7ba;
+}
+
+.techList span:hover,
+.coreList span:hover{
+  border-color:var(--orange);
+  color:var(--orange);
+}
+
+.footerBottom{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-top:30px;
+  padding-top:20px;
+  border-top:1px solid #1e272b;
+}
+
+.footerBottom strong{
+  color:var(--orange);
+}
 
 /* =========================
-   REVEAL
-   ========================= */
+   REVEAL ANIMATION
+========================= */
 
 .reveal{
   opacity:0;
   transform:translateY(25px);
-  transition:.7s;
+  transition:
+    opacity .7s ease,
+    transform .7s ease;
 }
 
 .reveal.show{
   opacity:1;
-  transform:none;
+  transform:translateY(0);
 }
 
-
-/* =========================================================
+/* =========================
    TABLET
-   ========================================================= */
+========================= */
 
 @media(max-width:900px){
 
   nav{
     display:none;
     position:absolute;
-    top:70px;
+    top:68px;
     left:0;
     right:0;
     background:#04080b;
     flex-direction:column;
+    align-items:flex-start;
     padding:20px;
     gap:18px;
+    border-bottom:1px solid #222c31;
   }
 
   .menu{
@@ -1056,7 +1117,6 @@ footer span{
     display:none;
   }
 
-  /* PAGE 1 — FULL WIDTH */
   .heroGrid{
     display:flex;
     width:100%;
@@ -1080,12 +1140,10 @@ footer span{
     min-height:520px;
     height:520px;
     padding:40px 25px;
-
     display:flex;
     flex-direction:column;
     align-items:center;
     justify-content:center;
-
     text-align:center;
   }
 
@@ -1097,60 +1155,47 @@ footer span{
     font-size:18px;
   }
 
-  /* Other pages */
   .aboutGrid,
-  .trading,
-  .contact{
+  .tradingGrid{
     grid-template-columns:1fr;
-  }
-
-  .aboutGrid{
-    height:auto;
   }
 
   .aboutPhoto{
-    height:300px;
-  }
-
-  .aboutPhoto img{
-    width:65%;
-  }
-
-  .timeline article{
-    grid-template-columns:36px 1fr;
-  }
-
-  .logo{
-    grid-column:2;
+    min-height:300px;
     border-left:0;
-    border-top:1px solid #29343a;
+    border-top:1px solid #20292d;
   }
 
-  .skills{
-    grid-template-columns:1fr;
+  .timelineItem{
+    grid-template-columns:75px 1fr;
   }
 
-  .projects{
+  .timelineDate{
+    grid-column:2;
+    text-align:left;
+  }
+
+  .impactGrid{
     grid-template-columns:1fr 1fr;
   }
 
-  .impact{
+  .impactStats{
     grid-template-columns:1fr 1fr;
   }
 
-  .impactBottom{
-    grid-template-columns:1fr 1fr;
+  .chart{
+    border-left:0;
+    border-top:1px solid #222c31;
   }
 
-  footer{
+  .footerGrid{
     grid-template-columns:1fr;
   }
 }
 
-
-/* =========================================================
+/* =========================
    MOBILE
-   ========================================================= */
+========================= */
 
 @media(max-width:520px){
 
@@ -1159,7 +1204,14 @@ footer span{
     width:calc(100% - 10px);
   }
 
-  /* FULL-WIDTH PAGE 1 */
+  .panel{
+    margin:6px 0;
+  }
+
+  .panel>label{
+    font-size:10px;
+  }
+
   .heroGrid{
     height:540px;
     min-height:540px;
@@ -1175,15 +1227,7 @@ footer span{
     max-width:500px;
     min-height:540px;
     height:540px;
-
     padding:35px 15px;
-
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    justify-content:center;
-
-    text-align:center;
   }
 
   .hero .copy>small{
@@ -1232,36 +1276,128 @@ footer span{
     margin-top:12px;
   }
 
-  .projects{
-    grid-template-columns:1fr;
-  }
-
-  .impact b{
-    font-size:32px;
-  }
-
-  .mini{
-    grid-template-columns:1fr;
-  }
-
+  .aboutCopy,
+  .timeline,
+  .tradingCopy,
   .contact{
-    padding:20px;
+    padding:30px 20px;
   }
 
-  .contact h2{
-    font-size:40px;
+  .aboutCopy h2{
+    font-size:50px;
   }
 
-  .skills p{
+  .aboutCopy ul{
+    grid-template-columns:1fr;
+  }
+
+  .timelineItem{
+    grid-template-columns:55px 1fr;
+    gap:12px;
+  }
+
+  .timelineItem::before{
+    left:27px;
+  }
+
+  .timelineContent h3{
+    font-size:20px;
+  }
+
+  .skillsGrid{
+    grid-template-columns:1fr;
+  }
+
+  .skillBox{
+    min-height:auto;
+    padding:25px 20px;
+  }
+
+  .projectsGrid{
+    grid-template-columns:1fr;
+    padding:12px;
+  }
+
+  .projectCard{
+    min-height:210px;
+    padding:23px;
+  }
+
+  .impactGrid{
     grid-template-columns:1fr 1fr;
   }
 
-  .aboutPhoto{
-    height:260px;
+  .impactBox{
+    min-height:130px;
+    padding:20px 10px;
   }
 
-  .aboutPhoto img{
-    width:65%;
+  .impactBox b{
+    font-size:38px;
+  }
+
+  .impactBox span{
+    font-size:9px;
+  }
+
+  .impactStats{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .tradingStats{
+    grid-template-columns:1fr;
+  }
+
+  .tradingCopy h2{
+    font-size:62px;
+  }
+
+  .chart{
+    min-height:320px;
+  }
+
+  .contact h2{
+    font-size:58px;
+  }
+
+  .contactForm{
+    grid-template-columns:1fr;
+  }
+
+  .contactForm textarea,
+  .contactForm button{
+    grid-column:1;
+  }
+
+  .footerBottom{
+    flex-direction:column;
+    gap:15px;
+    text-align:center;
   }
 }
-```
+
+/* =========================
+   SMALL ORANGE DETAILS
+========================= */
+
+::selection{
+  background:var(--orange);
+  color:#050708;
+}
+
+::-webkit-scrollbar{
+  width:7px;
+}
+
+::-webkit-scrollbar-track{
+  background:#020506;
+}
+
+::-webkit-scrollbar-thumb{
+  background:#3c2117;
+  border-radius:10px;
+}
+
+::-webkit-scrollbar-thumb:hover{
+  background:var(--orange);
+}
