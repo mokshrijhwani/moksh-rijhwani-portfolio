@@ -1,7 +1,9 @@
-/* =========================================================
-   MOKSH RIJHWANI — PORTFOLIO CSS
-   FINAL VERSION — PAGE 1 CENTERED
-   ========================================================= */
+```css
+/* FULL PORTFOLIO CSS — PAGE 1 FULL-WIDTH CENTERED */
+
+/* =========================
+   ROOT / GLOBAL
+   ========================= */
 
 :root{
   --bg:#04080b;
@@ -9,15 +11,15 @@
   --line:#29353b;
   --orange:#ff6a00;
   --text:#f4f5f5;
-  --muted:#8c979c
+  --muted:#8c979c;
 }
 
 *{
-  box-sizing:border-box
+  box-sizing:border-box;
 }
 
 html{
-  scroll-behavior:smooth
+  scroll-behavior:smooth;
 }
 
 body{
@@ -29,7 +31,7 @@ body{
     #010304
   );
   color:var(--text);
-  font:400 12px Inter,Arial,sans-serif
+  font:400 12px Inter,Arial,sans-serif;
 }
 
 body:before{
@@ -42,13 +44,13 @@ body:before{
     linear-gradient(#fff1 1px,transparent 1px),
     linear-gradient(90deg,#fff1 1px,transparent 1px);
   background-size:42px 42px;
-  z-index:-1
+  z-index:-1;
 }
 
 
-/* =========================================================
+/* =========================
    LOADER
-   ========================================================= */
+   ========================= */
 
 #loader{
   position:fixed;
@@ -60,13 +62,13 @@ body:before{
   align-items:center;
   justify-content:center;
   overflow:hidden;
-  transition:opacity .85s ease,visibility .85s ease
+  transition:opacity .85s ease,visibility .85s ease;
 }
 
 #loader.done{
   opacity:0;
   visibility:hidden;
-  pointer-events:none
+  pointer-events:none;
 }
 
 .loader-noise{
@@ -77,7 +79,7 @@ body:before{
     #fff 0 1px,
     transparent 1px 4px
   );
-  animation:noiseMove .2s steps(2) infinite
+  animation:noiseMove .2s steps(2) infinite;
 }
 
 .loader-corner{
@@ -85,7 +87,7 @@ body:before{
   top:28px;
   font:600 9px "Barlow Condensed";
   letter-spacing:2px;
-  color:#7e898d
+  color:#7e898d;
 }
 
 .loader-corner:before{
@@ -95,28 +97,28 @@ body:before{
   height:1px;
   background:var(--orange);
   vertical-align:middle;
-  margin-right:7px
+  margin-right:7px;
 }
 
 .top-left{
-  left:32px
+  left:32px;
 }
 
 .top-right{
-  right:32px
+  right:32px;
 }
 
 .loader-center{
   position:relative;
   width:min(720px,88vw);
   text-align:center;
-  z-index:2
+  z-index:2;
 }
 
 .loader-kicker{
   font:600 10px "Barlow Condensed";
   letter-spacing:3px;
-  color:#7f898d
+  color:#7f898d;
 }
 
 .loader-kicker span{
@@ -125,18 +127,18 @@ body:before{
   height:1px;
   background:var(--orange);
   vertical-align:middle;
-  margin:0 10px
+  margin:0 10px;
 }
 
 .loader-logo{
   margin-top:18px;
   font:800 clamp(58px,9vw,105px)/.8 "Barlow Condensed";
-  letter-spacing:-3px
+  letter-spacing:-3px;
 }
 
 .loader-logo span,
 .loader-name span:last-child{
-  color:var(--orange)
+  color:var(--orange);
 }
 
 .loader-name{
@@ -145,28 +147,28 @@ body:before{
   gap:14px;
   margin-top:22px;
   font:800 clamp(42px,7vw,78px)/.85 "Barlow Condensed";
-  letter-spacing:-1px
+  letter-spacing:-1px;
 }
 
 .loader-role{
   margin-top:18px;
   font:600 11px "Barlow Condensed";
   letter-spacing:2px;
-  color:#c4cbcd
+  color:#c4cbcd;
 }
 
 .loader-progress{
   height:2px;
   width:min(420px,70vw);
   margin:34px auto 10px;
-  background:#1a2429
+  background:#1a2429;
 }
 
 .loader-progress-bar{
   height:100%;
   width:0;
   background:var(--orange);
-  animation:progressFill 2.1s 1.15s cubic-bezier(.65,0,.2,1) forwards
+  animation:progressFill 2.1s 1.15s cubic-bezier(.65,0,.2,1) forwards;
 }
 
 .loader-status{
@@ -176,11 +178,11 @@ body:before{
   justify-content:space-between;
   font:600 8px "Barlow Condensed";
   letter-spacing:2px;
-  color:#687479
+  color:#687479;
 }
 
 .loader-status b{
-  color:var(--orange)
+  color:var(--orange);
 }
 
 .loader-footer{
@@ -193,30 +195,30 @@ body:before{
   white-space:nowrap;
   font:600 8px "Barlow Condensed";
   letter-spacing:2px;
-  color:#59656a
+  color:#59656a;
 }
 
 @keyframes progressFill{
   to{
-    width:100%
+    width:100%;
   }
 }
 
 @keyframes noiseMove{
   50%{
-    transform:translate(-1%,2%)
+    transform:translate(-1%,2%);
   }
 }
 
 
-/* =========================================================
+/* =========================
    HEADER
-   ========================================================= */
+   ========================= */
 
 .brand span,
 em,
 .head h2:before{
-  color:var(--orange)
+  color:var(--orange);
 }
 
 header{
@@ -230,20 +232,20 @@ header{
   display:flex;
   align-items:center;
   padding:0 25px;
-  gap:25px
+  gap:25px;
 }
 
 .brand{
   font:800 25px "Barlow Condensed";
   color:#fff;
-  text-decoration:none
+  text-decoration:none;
 }
 
 nav{
   display:flex;
   gap:24px;
   justify-content:center;
-  flex:1
+  flex:1;
 }
 
 nav a,
@@ -252,19 +254,19 @@ nav a,
   font:600 10px "Barlow Condensed";
   letter-spacing:.5px;
   color:#cbd0d2;
-  text-decoration:none
+  text-decoration:none;
 }
 
 .download,
 .btn{
   border:1px solid #70401f;
-  padding:10px 15px
+  padding:10px 15px;
 }
 
 .hot{
   background:var(--orange);
   color:#070707;
-  border-color:var(--orange)
+  border-color:var(--orange);
 }
 
 .menu{
@@ -272,18 +274,18 @@ nav a,
   background:none;
   color:#fff;
   border:0;
-  font-size:22px
+  font-size:22px;
 }
 
 
-/* =========================================================
-   GLOBAL LAYOUT
-   ========================================================= */
+/* =========================
+   GLOBAL PANEL
+   ========================= */
 
 main,
 footer{
   width:min(1520px,calc(100% - 24px));
-  margin:auto
+  margin:auto;
 }
 
 .panel{
@@ -292,7 +294,7 @@ footer{
   border:1px solid #263238;
   margin:12px 0;
   overflow:hidden;
-  box-shadow:0 15px 50px #0008
+  box-shadow:0 15px 50px #0008;
 }
 
 .panel>label{
@@ -301,157 +303,174 @@ footer{
   padding:9px 13px;
   font:500 12px "Barlow Condensed";
   letter-spacing:.7px;
-  color:#aeb7ba
+  color:#aeb7ba;
 }
 
 .panel>label b{
   font-size:16px;
   color:var(--orange);
-  margin-right:7px
+  margin-right:7px;
 }
 
 
 /* =========================================================
    PAGE 1 — HOME / HERO
+   FULL-WIDTH CENTERED CONTENT
    ========================================================= */
 
-/*
-   The hero is intentionally divided into two equal halves.
-   The left content is centered as ONE complete composition.
-*/
-
 .heroGrid{
-  display:grid;
-  grid-template-columns:1fr 1fr;
+  position:relative;
+  display:flex;
+  align-items:center;
+  justify-content:center;
   min-height:450px;
-  height:450px
+  height:450px;
+  width:100%;
 }
 
-.hero .copy{
-  min-width:0;
+/* Full hero background */
+.heroArt{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
   min-height:450px;
-  padding:35px 45px;
+  background:#050a0d;
+  z-index:0;
+}
+
+.heroArt *{
+  display:none!important;
+}
+
+/* Full-width content container */
+.hero .copy{
+  position:relative;
+  z-index:2;
+
+  width:100%;
+  max-width:1100px;
+  min-height:450px;
+
+  margin:0 auto;
+  padding:35px 50px;
+
   display:flex;
   flex-direction:column;
-  justify-content:center;
   align-items:center;
+  justify-content:center;
+
   text-align:center;
-  margin:0 auto;
-  width:100%;
-  max-width:760px
 }
 
+/* Small heading */
 .hero .copy>small{
   letter-spacing:2px;
   color:#aab2b5;
   font:600 10px "Barlow Condensed";
-  margin:0
-}
-
-.hero h1{
-  font:800 clamp(68px,6vw,102px)/.78 "Barlow Condensed";
-  margin:16px 0 14px;
-  letter-spacing:-2px;
-  text-align:center
-}
-
-.hero h2{
-  font:600 18px/1 "Barlow Condensed";
   margin:0;
-  text-align:center
 }
 
-/*
-   Stats are centered inside the content area rather than
-   stretching against the full half of the page.
-*/
+/* Main name */
+.hero h1{
+  font:800 clamp(75px,8vw,125px)/.76 "Barlow Condensed";
+  margin:18px 0 16px;
+  letter-spacing:-3px;
+  text-align:center;
+}
 
+/* Job title */
+.hero h2{
+  font:600 20px/1.05 "Barlow Condensed";
+  margin:0;
+  text-align:center;
+}
+
+/* Statistics */
 .stats{
   display:grid;
   grid-template-columns:repeat(4,1fr);
+
   width:100%;
-  max-width:620px;
-  gap:7px;
-  margin:22px auto 18px
+  max-width:760px;
+
+  gap:8px;
+  margin:25px auto 20px;
 }
 
 .stats div{
   border:1px solid #3b312b;
-  padding:12px;
-  text-align:center
+  padding:14px 12px;
+  min-height:70px;
+
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+
+  text-align:center;
 }
 
 .stats b{
-  font:600 27px "Barlow Condensed";
-  display:block
+  font:600 30px "Barlow Condensed";
+  display:block;
 }
 
 .stats small{
   font:8px "Barlow Condensed";
-  color:#aeb7ba
+  color:#aeb7ba;
 }
 
+/* Hero buttons */
 .heroButtons{
   display:flex;
   justify-content:center;
   align-items:center;
-  gap:7px;
+  gap:8px;
   flex-wrap:wrap;
   width:100%;
-  margin:0 auto
+  margin:0 auto;
 }
 
 .hero .copy>.btn{
   display:inline-block;
-  margin:0
+  margin:0;
 }
 
+/* Location */
 .hero .copy>p{
   font-size:10px;
   color:#8f999d;
   margin:16px 0 0;
-  text-align:center
+  text-align:center;
 }
 
 
-/* Right-side hero area remains untouched */
-
-.heroArt{
-  position:relative;
-  min-height:450px;
-  background:#050a0d
-}
-
-.heroArt *{
-  display:none!important
-}
-
-
-/* =========================================================
+/* =========================
    PAGE 2 — ABOUT
-   ========================================================= */
+   ========================= */
 
 .aboutGrid{
   display:grid;
   grid-template-columns:1fr .8fr;
   min-height:330px;
-  height:330px
+  height:330px;
 }
 
 .aboutGrid .copy{
-  padding:25px 28px
+  padding:25px 28px;
 }
 
 .aboutGrid h2,
 .trading h2{
   font:600 34px/.92 "Barlow Condensed";
-  margin:10px 0
+  margin:10px 0;
 }
 
 .aboutGrid p{
   line-height:1.5;
   color:#aab3b7;
-  margin:8px 0
+  margin:8px 0;
 }
 
 .aboutGrid ul{
@@ -459,13 +478,13 @@ footer{
   list-style:none;
   line-height:1.7;
   color:#d3d8da;
-  margin-top:10px
+  margin-top:10px;
 }
 
 .aboutGrid li:before{
   content:"⊙";
   color:var(--orange);
-  margin-right:8px
+  margin-right:8px;
 }
 
 .aboutPhoto{
@@ -477,12 +496,12 @@ footer{
   align-items:center;
   overflow:hidden;
   border:0!important;
-  box-shadow:none!important
+  box-shadow:none!important;
 }
 
 .aboutPhoto:before,
 .aboutPhoto:after{
-  display:none!important
+  display:none!important;
 }
 
 .aboutPhoto img{
@@ -490,21 +509,21 @@ footer{
   height:100%;
   object-fit:contain;
   object-position:center;
-  display:block
+  display:block;
 }
 
 
-/* =========================================================
+/* =========================
    PAGE 3 — EXPERIENCE
-   ========================================================= */
+   ========================= */
 
 .head{
-  padding:25px 20px 10px
+  padding:25px 20px 10px;
 }
 
 .head h2{
   font:700 25px "Barlow Condensed";
-  margin:0
+  margin:0;
 }
 
 .head h2:before{
@@ -513,17 +532,17 @@ footer{
   width:20px;
   height:2px;
   background:var(--orange);
-  margin:0 8px 6px 0
+  margin:0 8px 6px 0;
 }
 
 .head p{
   font-size:9px;
   color:#7e898d;
-  margin:4px 0
+  margin:4px 0;
 }
 
 .timeline{
-  padding:5px 28px 28px
+  padding:5px 28px 28px;
 }
 
 .timeline article{
@@ -533,7 +552,7 @@ footer{
   align-items:center;
   padding:17px 12px;
   margin-bottom:9px;
-  border:1px solid #29343a
+  border:1px solid #29343a;
 }
 
 .timeline article>strong{
@@ -544,29 +563,29 @@ footer{
   display:grid;
   place-items:center;
   color:var(--orange);
-  font:600 12px "Barlow Condensed"
+  font:600 12px "Barlow Condensed";
 }
 
 .timeline h3{
   font:600 12px "Barlow Condensed";
-  margin:0
+  margin:0;
 }
 
 .timeline em{
   font:600 10px "Barlow Condensed";
-  font-style:normal
+  font-style:normal;
 }
 
 .timeline small{
   display:block;
   color:#788387;
-  font:9px "Barlow Condensed"
+  font:9px "Barlow Condensed";
 }
 
 .timeline p{
   font-size:9px;
   color:#8d989c;
-  line-height:1.5
+  line-height:1.5;
 }
 
 .logo{
@@ -575,51 +594,51 @@ footer{
   place-items:center;
   border-left:1px solid #29343a;
   font:800 26px "Barlow Condensed";
-  text-align:center
+  text-align:center;
 }
 
 .clinic{
-  color:#123b70
+  color:#123b70;
 }
 
 .yahoo{
   color:#8b00ff;
-  font-size:26px
+  font-size:26px;
 }
 
 .flip{
   color:#168ee4;
-  font-size:24px
+  font-size:24px;
 }
 
 
-/* =========================================================
+/* =========================
    PAGE 4 — SKILLS
-   ========================================================= */
+   ========================= */
 
 .skills{
   display:grid;
   grid-template-columns:1fr 1fr;
   gap:10px;
-  padding:0 18px 25px
+  padding:0 18px 25px;
 }
 
 .skills>div{
   border:1px solid #30393e;
-  padding:13px
+  padding:13px;
 }
 
 .skills h3{
   font:600 10px "Barlow Condensed";
   color:var(--orange);
-  margin:0 0 10px
+  margin:0 0 10px;
 }
 
 .skills p{
   display:grid;
   grid-template-columns:repeat(4,1fr);
   gap:7px;
-  margin:0
+  margin:0;
 }
 
 .skills span{
@@ -627,46 +646,46 @@ footer{
   min-height:70px;
   display:flex;
   align-items:center;
-  justify-content:center
+  justify-content:center;
 }
 
 .skills span b{
   font:600 9px "Barlow Condensed";
   color:#cbd1d3;
-  text-align:center
+  text-align:center;
 }
 
 
-/* =========================================================
+/* =========================
    PAGE 5 — PROJECTS
-   ========================================================= */
+   ========================= */
 
 .projects{
   display:grid;
   grid-template-columns:repeat(5,1fr);
   gap:8px;
-  padding:0 18px 28px
+  padding:0 18px 28px;
 }
 
 .projects article{
   border:1px solid #30393e;
   padding:12px;
-  min-height:280px
+  min-height:280px;
 }
 
 .projects article>b{
   color:var(--orange);
-  font:700 15px "Barlow Condensed"
+  font:700 15px "Barlow Condensed";
 }
 
 .projects h3{
   font:600 13px/1.05 "Barlow Condensed";
-  margin:5px 0
+  margin:5px 0;
 }
 
 .projects em{
   font:9px "Barlow Condensed";
-  font-style:normal
+  font-style:normal;
 }
 
 .projects article>div{
@@ -682,36 +701,36 @@ footer{
     0deg,
     transparent 0 18px,
     #ff6a000b 19px 20px
-  )
+  );
 }
 
 .projects article>div small{
   display:block;
   font:8px "Barlow Condensed";
-  color:#7e898d
+  color:#7e898d;
 }
 
 .projects p{
   font-size:9px;
   color:#8b969a;
-  line-height:1.45
+  line-height:1.45;
 }
 
 .projects article>a{
   font:600 9px "Barlow Condensed";
-  color:var(--orange)
+  color:var(--orange);
 }
 
 
-/* =========================================================
+/* =========================
    PAGE 6 — IMPACT
-   ========================================================= */
+   ========================= */
 
 .impact{
   display:grid;
   grid-template-columns:repeat(4,1fr);
   gap:13px;
-  padding:8px 30px 24px
+  padding:8px 30px 24px;
 }
 
 .impact>div{
@@ -720,23 +739,23 @@ footer{
   border-radius:50%;
   display:grid;
   place-content:center;
-  text-align:center
+  text-align:center;
 }
 
 .impact b{
-  font:600 39px "Barlow Condensed"
+  font:600 39px "Barlow Condensed";
 }
 
 .impact small{
   font:8px "Barlow Condensed";
-  color:#8d989c
+  color:#8d989c;
 }
 
 .impactBottom{
   display:grid;
   grid-template-columns:repeat(5,1fr);
   gap:7px;
-  padding:0 30px 28px
+  padding:0 30px 28px;
 }
 
 .impactBottom span{
@@ -744,44 +763,44 @@ footer{
   padding:11px;
   text-align:center;
   color:var(--orange);
-  font-size:7px
+  font-size:7px;
 }
 
 .impactBottom strong{
   display:block;
   color:#fff;
   font:600 25px "Barlow Condensed";
-  margin-top:4px
+  margin-top:4px;
 }
 
 
-/* =========================================================
+/* =========================
    PAGE 7 — TRADING
-   ========================================================= */
+   ========================= */
 
 .trading{
   display:grid;
   grid-template-columns:.55fr 1.45fr;
   gap:20px;
-  padding:25px 30px 32px
+  padding:25px 30px 32px;
 }
 
 .mini{
   display:grid;
   grid-template-columns:repeat(3,1fr);
-  gap:6px
+  gap:6px;
 }
 
 .mini span{
   border:1px solid #3b3029;
   padding:10px;
   font:8px "Barlow Condensed";
-  text-align:center
+  text-align:center;
 }
 
 .mini b{
   display:block;
-  font:600 25px "Barlow Condensed"
+  font:600 25px "Barlow Condensed";
 }
 
 .market{
@@ -798,7 +817,7 @@ footer{
       90deg,
       transparent 0 65px,
       #ff6a0009 66px 67px
-    )
+    );
 }
 
 .marketHeader{
@@ -808,27 +827,27 @@ footer{
   right:15px;
   display:flex;
   justify-content:space-between;
-  font:600 11px "Barlow Condensed"
+  font:600 11px "Barlow Condensed";
 }
 
 .candles{
   position:absolute;
   inset:35px 80px 75px 25px;
-  background:
-    linear-gradient(
-      145deg,
-      transparent 5%,
-      #1c4d3a 5.5% 8%,
-      transparent 8.5% 22%,
-      #8c321b 22.5% 25%,
-      transparent 25.5% 40%,
-      #d7591a 40.5% 43%,
-      transparent 43.5% 62%,
-      #a6401d 62.5% 65%,
-      transparent 65.5% 80%,
-      #ef7b20 80.5% 83%,
-      transparent 83.5%
-    );
+  background:linear-gradient(
+    145deg,
+    transparent 5%,
+    #1c4d3a 5.5% 8%,
+    transparent 8.5% 22%,
+    #8c321b 22.5% 25%,
+    transparent 25.5% 40%,
+    #d7591a 40.5% 43%,
+    transparent 43.5% 62%,
+    #a6401d 62.5% 65%,
+    transparent 65.5% 80%,
+    #ef7b20 80.5% 83%,
+    transparent 83.5%
+  );
+
   clip-path:polygon(
     0 80%,
     8% 72%,
@@ -845,7 +864,7 @@ footer{
     100% 15%,
     100% 100%,
     0 100%
-  )
+  );
 }
 
 .line{
@@ -855,7 +874,7 @@ footer{
   top:135px;
   height:2px;
   background:var(--orange);
-  transform:rotate(-10deg)
+  transform:rotate(-10deg);
 }
 
 .marketScale{
@@ -864,7 +883,7 @@ footer{
   top:55px;
   color:#778287;
   font:8px "Barlow Condensed";
-  line-height:2.2
+  line-height:2.2;
 }
 
 .marketBottom{
@@ -872,34 +891,34 @@ footer{
   left:15px;
   bottom:12px;
   color:#778287;
-  font:8px "Barlow Condensed"
+  font:8px "Barlow Condensed";
 }
 
 
-/* =========================================================
+/* =========================
    PAGE 8 — CONTACT
-   ========================================================= */
+   ========================= */
 
 .contact{
   display:grid;
   grid-template-columns:1fr 1fr;
   gap:35px;
-  padding:28px
+  padding:28px;
 }
 
 .contact h2{
   font:700 47px/.86 "Barlow Condensed";
-  margin:5px 0
+  margin:5px 0;
 }
 
 .contact p{
   color:#9ca6a9;
-  font-size:10px
+  font-size:10px;
 }
 
 .social{
   display:flex;
-  gap:7px
+  gap:7px;
 }
 
 .social a{
@@ -910,12 +929,12 @@ footer{
   display:grid;
   place-items:center;
   color:#fff;
-  text-decoration:none
+  text-decoration:none;
 }
 
 .contact form{
   display:grid;
-  gap:8px
+  gap:8px;
 }
 
 .contact input,
@@ -924,23 +943,23 @@ footer{
   border:1px solid #2a363b;
   color:#fff;
   padding:12px;
-  font:10px Inter
+  font:10px Inter;
 }
 
 .contact textarea{
   height:120px;
-  resize:vertical
+  resize:vertical;
 }
 
 
-/* =========================================================
+/* =========================
    BACK TO TOP
-   ========================================================= */
+   ========================= */
 
 .backTopWrap{
   display:flex;
   justify-content:center;
-  padding:18px 0 10px
+  padding:18px 0 10px;
 }
 
 .backTop{
@@ -949,25 +968,25 @@ footer{
   color:#cbd0d2;
   text-decoration:none;
   font:600 10px "Barlow Condensed";
-  letter-spacing:.8px
+  letter-spacing:.8px;
 }
 
 .backTop:hover{
   background:var(--orange);
-  color:#070707
+  color:#070707;
 }
 
 
-/* =========================================================
+/* =========================
    FOOTER
-   ========================================================= */
+   ========================= */
 
 footer{
   display:grid;
   grid-template-columns:1fr 1fr;
   background:#060b0e;
   border:1px solid #263238;
-  margin-bottom:20px
+  margin-bottom:20px;
 }
 
 footer div{
@@ -975,39 +994,39 @@ footer div{
   display:flex;
   gap:17px;
   flex-wrap:wrap;
-  border-right:1px solid #263238
+  border-right:1px solid #263238;
 }
 
 footer b{
   width:100%;
   font:600 10px "Barlow Condensed";
-  letter-spacing:1px
+  letter-spacing:1px;
 }
 
 footer span{
   font:9px "Barlow Condensed";
-  color:#aab3b6
+  color:#aab3b6;
 }
 
 
-/* =========================================================
-   REVEAL ANIMATION
-   ========================================================= */
+/* =========================
+   REVEAL
+   ========================= */
 
 .reveal{
   opacity:0;
   transform:translateY(25px);
-  transition:.7s
+  transition:.7s;
 }
 
 .reveal.show{
   opacity:1;
-  transform:none
+  transform:none;
 }
 
 
 /* =========================================================
-   TABLET / MOBILE
+   TABLET
    ========================================================= */
 
 @media(max-width:900px){
@@ -1021,196 +1040,228 @@ footer span{
     background:#04080b;
     flex-direction:column;
     padding:20px;
-    gap:18px
+    gap:18px;
   }
 
   .menu{
     display:block;
-    margin-left:auto
+    margin-left:auto;
   }
 
   nav.open{
-    display:flex
+    display:flex;
   }
 
   .download{
-    display:none
+    display:none;
   }
 
-  .heroGrid,
-  .aboutGrid,
-  .trading,
-  .contact{
-    grid-template-columns:1fr
-  }
-
+  /* PAGE 1 — FULL WIDTH */
   .heroGrid{
-    height:auto
-  }
-
-  /*
-     On mobile the hero content gets its own full-height
-     centered area before the art section.
-  */
-
-  .hero .copy{
-    min-height:450px;
-    height:450px;
-    padding:40px 30px;
-    justify-content:center;
+    display:flex;
+    width:100%;
+    height:520px;
+    min-height:520px;
     align-items:center;
-    text-align:center
+    justify-content:center;
   }
 
   .heroArt{
-    min-height:180px;
-    height:180px
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    min-height:520px;
+  }
+
+  .hero .copy{
+    width:100%;
+    max-width:700px;
+    min-height:520px;
+    height:520px;
+    padding:40px 25px;
+
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+
+    text-align:center;
+  }
+
+  .hero h1{
+    font-size:80px;
+  }
+
+  .hero h2{
+    font-size:18px;
+  }
+
+  /* Other pages */
+  .aboutGrid,
+  .trading,
+  .contact{
+    grid-template-columns:1fr;
   }
 
   .aboutGrid{
-    height:auto
+    height:auto;
   }
 
   .aboutPhoto{
-    height:300px
+    height:300px;
   }
 
   .aboutPhoto img{
-    width:65%
+    width:65%;
   }
 
   .timeline article{
-    grid-template-columns:36px 1fr
+    grid-template-columns:36px 1fr;
   }
 
   .logo{
     grid-column:2;
     border-left:0;
-    border-top:1px solid #29343a
+    border-top:1px solid #29343a;
   }
 
   .skills{
-    grid-template-columns:1fr
+    grid-template-columns:1fr;
   }
 
   .projects{
-    grid-template-columns:1fr 1fr
+    grid-template-columns:1fr 1fr;
   }
 
   .impact{
-    grid-template-columns:1fr 1fr
+    grid-template-columns:1fr 1fr;
   }
 
   .impactBottom{
-    grid-template-columns:1fr 1fr
+    grid-template-columns:1fr 1fr;
   }
 
   footer{
-    grid-template-columns:1fr
+    grid-template-columns:1fr;
   }
 }
 
 
 /* =========================================================
-   SMALL MOBILE
+   MOBILE
    ========================================================= */
 
 @media(max-width:520px){
 
   main,
   footer{
-    width:calc(100% - 10px)
+    width:calc(100% - 10px);
   }
 
-  /*
-     Final mobile Page 1 centering.
-     The content remains a single centered block.
-  */
+  /* FULL-WIDTH PAGE 1 */
+  .heroGrid{
+    height:540px;
+    min-height:540px;
+  }
+
+  .heroArt{
+    height:540px;
+    min-height:540px;
+  }
 
   .hero .copy{
-    min-height:450px;
-    height:450px;
-    padding:35px 16px;
-    justify-content:center;
+    width:100%;
+    max-width:500px;
+    min-height:540px;
+    height:540px;
+
+    padding:35px 15px;
+
+    display:flex;
+    flex-direction:column;
     align-items:center;
-    text-align:center
+    justify-content:center;
+
+    text-align:center;
   }
 
   .hero .copy>small{
     font-size:9px;
-    letter-spacing:1.5px
+    letter-spacing:1.5px;
   }
 
   .hero h1{
     font-size:70px;
-    margin:15px 0 13px
+    margin:15px 0 13px;
   }
 
   .hero h2{
-    font-size:17px
+    font-size:17px;
   }
 
   .stats{
     grid-template-columns:1fr 1fr;
     width:100%;
-    max-width:430px;
+    max-width:440px;
     gap:6px;
-    margin:20px auto 17px
+    margin:20px auto 17px;
   }
 
   .stats div{
-    padding:10px 7px
+    padding:10px 7px;
+    min-height:65px;
   }
 
   .stats b{
-    font-size:25px
+    font-size:25px;
   }
 
   .heroButtons{
     width:100%;
-    max-width:430px;
-    margin:0 auto
+    max-width:440px;
   }
 
   .hero .copy>.btn{
     width:100%;
     text-align:center;
-    margin:4px 0
+    margin:4px 0;
   }
 
   .hero .copy>p{
-    margin-top:12px
+    margin-top:12px;
   }
 
   .projects{
-    grid-template-columns:1fr
+    grid-template-columns:1fr;
   }
 
   .impact b{
-    font-size:32px
+    font-size:32px;
   }
 
   .mini{
-    grid-template-columns:1fr
+    grid-template-columns:1fr;
   }
 
   .contact{
-    padding:20px
+    padding:20px;
   }
 
   .contact h2{
-    font-size:40px
+    font-size:40px;
   }
 
   .skills p{
-    grid-template-columns:1fr 1fr
+    grid-template-columns:1fr 1fr;
   }
 
   .aboutPhoto{
-    height:260px
+    height:260px;
   }
 
   .aboutPhoto img{
-    width:65%
+    width:65%;
   }
 }
+```
