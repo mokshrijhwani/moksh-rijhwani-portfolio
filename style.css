@@ -1,6 +1,6 @@
 /* =========================================================
    MOKSH RIJHWANI — PORTFOLIO CSS
-   FINAL VERSION — PAGE 1 CENTERED
+   FINAL VERSION — PAGE 1 FULLY CENTERED
    ========================================================= */
 
 :root{
@@ -313,58 +313,91 @@ footer{
 
 /* =========================================================
    PAGE 1 — HOME / HERO
+   FULL WIDTH CENTERED CONTENT
    ========================================================= */
 
-/*
-   The hero is intentionally divided into two equal halves.
-   The left content is centered as ONE complete composition.
-*/
-
 .heroGrid{
-  display:grid;
-  grid-template-columns:1fr 1fr;
+  position:relative;
+  width:100%;
   min-height:450px;
-  height:450px
+  height:450px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden
+}
+
+.heroArt{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  min-height:450px;
+  background:
+    radial-gradient(
+      circle at 50% 50%,
+      rgba(255,106,0,.10),
+      transparent 38%
+    ),
+    linear-gradient(
+      145deg,
+      #091116,
+      #030608 70%
+    );
+  z-index:0
+}
+
+.heroArt *{
+  display:none!important
 }
 
 .hero .copy{
-  min-width:0;
+  position:relative;
+  z-index:2;
+  width:100%;
+  max-width:1000px;
   min-height:450px;
-  padding:35px 45px;
+  margin:0 auto;
+  padding:30px 40px;
   display:flex;
   flex-direction:column;
-  justify-content:center;
   align-items:center;
-  text-align:center;
-  margin:0 auto;
-  width:100%;
-  max-width:760px
+  justify-content:center;
+  text-align:center
 }
 
 .hero .copy>small{
+  display:block;
+  width:100%;
+  margin:0;
+  padding:0;
+  text-align:center;
   letter-spacing:2px;
   color:#aab2b5;
-  font:600 10px "Barlow Condensed";
-  margin:0
+  font:600 10px "Barlow Condensed"
 }
 
 .hero h1{
-  font:800 clamp(68px,6vw,102px)/.78 "Barlow Condensed";
+  width:100%;
   margin:16px 0 14px;
-  letter-spacing:-2px;
-  text-align:center
+  padding:0;
+  text-align:center;
+  font:800 clamp(68px,6vw,102px)/.78 "Barlow Condensed";
+  letter-spacing:-2px
+}
+
+.hero h1 em{
+  color:var(--orange);
+  font-style:normal
 }
 
 .hero h2{
-  font:600 18px/1 "Barlow Condensed";
+  width:100%;
   margin:0;
-  text-align:center
+  padding:0;
+  text-align:center;
+  font:600 18px/1 "Barlow Condensed"
 }
-
-/*
-   Stats are centered inside the content area rather than
-   stretching against the full half of the page.
-*/
 
 .stats{
   display:grid;
@@ -372,58 +405,65 @@ footer{
   width:100%;
   max-width:620px;
   gap:7px;
-  margin:22px auto 18px
+  margin:22px auto 18px;
+  justify-content:center
 }
 
 .stats div{
   border:1px solid #3b312b;
   padding:12px;
-  text-align:center
+  text-align:center;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center
 }
 
 .stats b{
+  display:block;
   font:600 27px "Barlow Condensed";
-  display:block
+  color:var(--orange);
+  text-align:center
 }
 
 .stats small{
+  display:block;
   font:8px "Barlow Condensed";
-  color:#aeb7ba
+  color:#aeb7ba;
+  text-align:center
 }
 
 .heroButtons{
   display:flex;
+  width:100%;
   justify-content:center;
   align-items:center;
   gap:7px;
   flex-wrap:wrap;
-  width:100%;
   margin:0 auto
 }
 
 .hero .copy>.btn{
   display:inline-block;
-  margin:0
-}
-
-.hero .copy>p{
-  font-size:10px;
-  color:#8f999d;
-  margin:16px 0 0;
+  margin:0;
   text-align:center
 }
 
-
-/* Right-side hero area remains untouched */
-
-.heroArt{
-  position:relative;
-  min-height:450px;
-  background:#050a0d
+.hero .copy>p{
+  width:100%;
+  margin:16px 0 0;
+  padding:0;
+  text-align:center;
+  font-size:10px;
+  color:#8f999d
 }
 
-.heroArt *{
-  display:none!important
+.heroGrid>.copy{
+  grid-column:auto
+}
+
+.heroGrid>.heroArt{
+  grid-column:auto
 }
 
 
@@ -1037,34 +1077,75 @@ footer span{
     display:none
   }
 
-  .heroGrid,
   .aboutGrid,
   .trading,
   .contact{
     grid-template-columns:1fr
   }
 
-  .heroGrid{
-    height:auto
-  }
-
   /*
-     On mobile the hero content gets its own full-height
-     centered area before the art section.
+     PAGE 1:
+     Full-width hero with content centered across
+     the entire page instead of one grid column.
   */
 
-  .hero .copy{
-    min-height:450px;
-    height:450px;
-    padding:40px 30px;
-    justify-content:center;
+  .heroGrid{
+    position:relative;
+    width:100%;
+    height:500px;
+    min-height:500px;
+    display:flex;
     align-items:center;
-    text-align:center
+    justify-content:center
   }
 
   .heroArt{
-    min-height:180px;
-    height:180px
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    min-height:500px;
+    z-index:0
+  }
+
+  .hero .copy{
+    position:relative;
+    z-index:2;
+    width:100%;
+    max-width:700px;
+    height:500px;
+    min-height:500px;
+    margin:0 auto;
+    padding:35px 25px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    text-align:center
+  }
+
+  .hero .copy>small,
+  .hero h1,
+  .hero h2,
+  .hero .copy>p{
+    width:100%;
+    text-align:center
+  }
+
+  .hero h1{
+    font-size:80px
+  }
+
+  .stats{
+    width:100%;
+    max-width:620px;
+    margin-left:auto;
+    margin-right:auto
+  }
+
+  .heroButtons{
+    width:100%;
+    justify-content:center
   }
 
   .aboutGrid{
@@ -1123,43 +1204,78 @@ footer span{
   }
 
   /*
-     Final mobile Page 1 centering.
-     The content remains a single centered block.
+     PAGE 1:
+     Keep the complete composition perfectly centered
+     on small screens as well.
   */
 
-  .hero .copy{
-    min-height:450px;
-    height:450px;
-    padding:35px 16px;
-    justify-content:center;
+  .heroGrid{
+    width:100%;
+    height:540px;
+    min-height:540px;
+    display:flex;
     align-items:center;
+    justify-content:center
+  }
+
+  .heroArt{
+    height:540px;
+    min-height:540px
+  }
+
+  .hero .copy{
+    width:100%;
+    max-width:500px;
+    height:540px;
+    min-height:540px;
+    margin:0 auto;
+    padding:30px 16px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
     text-align:center
   }
 
   .hero .copy>small{
+    width:100%;
     font-size:9px;
-    letter-spacing:1.5px
+    letter-spacing:1.5px;
+    text-align:center
   }
 
   .hero h1{
+    width:100%;
     font-size:70px;
-    margin:15px 0 13px
+    margin:15px 0 13px;
+    text-align:center
   }
 
   .hero h2{
-    font-size:17px
+    width:100%;
+    font-size:17px;
+    text-align:center
   }
 
   .stats{
-    grid-template-columns:1fr 1fr;
     width:100%;
     max-width:430px;
+    grid-template-columns:1fr 1fr;
     gap:6px;
     margin:20px auto 17px
   }
 
   .stats div{
-    padding:10px 7px
+    padding:10px 7px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center
+  }
+
+  .stats b,
+  .stats small{
+    text-align:center
   }
 
   .stats b{
@@ -1169,17 +1285,23 @@ footer span{
   .heroButtons{
     width:100%;
     max-width:430px;
-    margin:0 auto
+    margin:0 auto;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center
   }
 
   .hero .copy>.btn{
     width:100%;
-    text-align:center;
-    margin:4px 0
+    margin:4px 0;
+    text-align:center
   }
 
   .hero .copy>p{
-    margin-top:12px
+    width:100%;
+    margin-top:12px;
+    text-align:center
   }
 
   .projects{
