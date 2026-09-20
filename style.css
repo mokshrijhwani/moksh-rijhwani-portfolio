@@ -595,27 +595,58 @@ footer{
   line-height:1.5
 }
 
+
+/* =========================================================
+   EXPERIENCE LOGOS
+   ========================================================= */
+
 .logo{
   height:60px;
-  display:grid;
-  place-items:center;
+  display:flex;
+  align-items:center;
+  justify-content:center;
   border-left:1px solid #29343a;
-  font:800 26px "Barlow Condensed";
-  text-align:center
+  text-align:center;
+  overflow:hidden;
+  padding:12px
 }
+
+
+/* ACCK — KEEPING EXISTING DESIGN */
 
 .clinic{
-  color:#123b70
+  color:#123b70;
+  font:800 26px "Barlow Condensed"
 }
+
+
+/* YAHOO */
 
 .yahoo{
-  color:#8b00ff;
-  font-size:26px
+  color:#8b00ff
 }
 
+.yahoo img{
+  width:120px;
+  max-width:100%;
+  height:45px;
+  object-fit:contain;
+  display:block
+}
+
+
+/* FLIPKART */
+
 .flip{
-  color:#168ee4;
-  font-size:24px
+  color:#168ee4
+}
+
+.flip img{
+  width:125px;
+  max-width:100%;
+  height:50px;
+  object-fit:contain;
+  display:block
 }
 
 
@@ -648,37 +679,70 @@ footer{
   margin:0
 }
 
+
+/* =========================================================
+   SKILL CARDS
+   ========================================================= */
+
 .skills p>span{
   border:1px solid #29343a;
-  min-height:90px;
-  padding:10px 6px;
+  min-height:105px;
+  padding:12px 6px 10px;
   display:flex;
   flex-direction:column;
   align-items:center;
   justify-content:center;
-  gap:8px;
+  gap:10px;
   transition:
     border-color .25s ease,
     background .25s ease,
-    transform .25s ease
+    transform .25s ease;
+  text-align:center
 }
 
 .skills p>span:hover{
   border-color:var(--orange);
   background:#0a1116;
-  transform:translateY(-2px)
+  transform:translateY(-3px)
 }
+
+
+/* =========================================================
+   ORIGINAL LOGO DISPLAY
+   ========================================================= */
 
 .skills p>span img{
-  width:34px;
-  height:34px;
+  width:42px;
+  height:42px;
   object-fit:contain;
-  display:block
+  object-position:center;
+  display:block;
+  flex:none;
 }
 
+
+/* Skill name */
+
+.skills p>span b{
+  display:block;
+  font:600 9px "Barlow Condensed";
+  color:#cbd1d3;
+  text-align:center;
+  line-height:1.15
+}
+
+.skills p>span:hover b{
+  color:var(--orange)
+}
+
+
+/* =========================================================
+   NON-BRAND SKILL BADGES
+   ========================================================= */
+
 .skills p>span .skillBadge{
-  width:34px;
-  height:34px;
+  width:42px;
+  height:42px;
   border:1px solid var(--orange);
   display:flex;
   align-items:center;
@@ -689,14 +753,12 @@ footer{
   flex:none
 }
 
-.skills p>span b{
-  font:600 9px "Barlow Condensed";
-  color:#cbd1d3;
-  text-align:center
+.crmBadge{
+  font-size:9px!important
 }
 
-.skills p>span:hover b{
-  color:var(--orange)
+.aiBadge{
+  font-size:13px!important
 }
 
 
@@ -1336,25 +1398,57 @@ footer span{
     font-size:40px
   }
 
+
+  /* ================================================
+     MOBILE SKILL LOGOS
+     ================================================ */
+
   .skills p{
     grid-template-columns:1fr 1fr
   }
 
   .skills p>span{
-    min-height:82px;
-    padding:9px 5px;
-    gap:6px
+    min-height:90px;
+    padding:10px 5px;
+    gap:7px
   }
 
-  .skills p>span img,
+  .skills p>span img{
+    width:32px;
+    height:32px
+  }
+
   .skills p>span .skillBadge{
-    width:28px;
-    height:28px
+    width:32px;
+    height:32px
   }
 
   .skills p>span b{
     font-size:8px
   }
+
+
+  /* MOBILE EXPERIENCE LOGOS */
+
+  .logo{
+    min-height:70px;
+    padding:10px
+  }
+
+  .yahoo img{
+    width:105px;
+    height:38px
+  }
+
+  .flip img{
+    width:110px;
+    height:42px
+  }
+
+  .clinic{
+    font-size:24px
+  }
+
 
   .aboutPhoto{
     height:260px
