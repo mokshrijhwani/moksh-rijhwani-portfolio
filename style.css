@@ -280,8 +280,7 @@ nav a,
    GLOBAL LAYOUT
    ========================================================= */
 
-main,
-footer{
+main{
   width:min(1520px,calc(100% - 24px));
   margin:auto
 }
@@ -313,6 +312,7 @@ footer{
 
 /* =========================================================
    PAGE 1 — HOME / HERO
+   FULL WIDTH CENTERED CONTENT
    ========================================================= */
 
 .heroGrid{
@@ -974,7 +974,7 @@ footer{
 
 /* =========================================================
    BACK TO TOP
-   NOW INSIDE PAGE 08
+   BOTTOM CENTER OF PAGE 8
    ========================================================= */
 
 .backTopWrap{
@@ -1004,38 +1004,6 @@ footer{
   background:var(--orange);
   color:#070707;
   transform:translateY(-2px)
-}
-
-
-/* =========================================================
-   FOOTER
-   ========================================================= */
-
-footer{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  background:#060b0e;
-  border:1px solid #263238;
-  margin-bottom:20px
-}
-
-footer div{
-  padding:13px 18px;
-  display:flex;
-  gap:17px;
-  flex-wrap:wrap;
-  border-right:1px solid #263238
-}
-
-footer b{
-  width:100%;
-  font:600 10px "Barlow Condensed";
-  letter-spacing:1px
-}
-
-footer span{
-  font:9px "Barlow Condensed";
-  color:#aab3b6
 }
 
 
@@ -1091,6 +1059,13 @@ footer span{
   .contact{
     grid-template-columns:1fr
   }
+
+
+  /*
+     PAGE 1:
+     Full-width hero with content centered across
+     the entire page instead of one grid column.
+  */
 
   .heroGrid{
     position:relative;
@@ -1189,10 +1164,6 @@ footer span{
     grid-template-columns:1fr 1fr
   }
 
-  footer{
-    grid-template-columns:1fr
-  }
-
 }
 
 
@@ -1202,10 +1173,16 @@ footer span{
 
 @media(max-width:520px){
 
-  main,
-  footer{
+  main{
     width:calc(100% - 10px)
   }
+
+
+  /*
+     PAGE 1:
+     Keep the complete composition perfectly centered
+     on small screens as well.
+  */
 
   .heroGrid{
     width:100%;
@@ -1333,6 +1310,9 @@ footer span{
   .aboutPhoto img{
     width:65%
   }
+
+
+  /* BACK TO TOP — MOBILE */
 
   .backTopWrap{
     padding:18px 0 22px;
