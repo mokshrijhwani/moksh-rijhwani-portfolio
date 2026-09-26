@@ -708,22 +708,28 @@ main{
   color:var(--orange);
   font:700 15px "Barlow Condensed";
   line-height:1;
-  margin:0 0 3px
+  margin:0 0 4px
 }
 
 .projects h3{
-  margin:0 0 2px;
+  margin:0 0 3px;
   padding-left:18px;
   font:600 13px/1.05 "Barlow Condensed";
-  letter-spacing:.15px
+  letter-spacing:.15px;
+  white-space:normal
 }
 
 .projects em{
   display:block;
   margin-left:31px;
-  font:9px "Barlow Condensed";
-  font-style:normal;
+  font:italic 9px "Barlow Condensed";
+  font-style:italic;
   color:#9ca6a9
+}
+
+.projects article>div{
+  height:100px;
+  margin:10px 0 12px;
 }
 
 .projects article>div .projectLogo{
