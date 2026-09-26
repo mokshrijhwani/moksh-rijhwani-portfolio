@@ -1546,7 +1546,8 @@ main{
   min-height:360px;
   display:flex;
   flex-direction:column;
-  justify-content:flex-end
+  justify-content:center;
+  padding:12px 0 0
 }
 
 .tradingCopyBottom>small,
@@ -1556,31 +1557,27 @@ main{
 }
 
 .tradingCopyBottom>small{
-  margin-bottom:4px
+  margin:0 0 4px
 }
 
 .tradingCopyBottom>h2{
-  margin-top:0
+  margin:0 0 18px
 }
 
 .tradingCopyBottom>p{
   width:100%;
   max-width:100%;
-  margin:9px 0
+  margin:7px 0
 }
 
 .tradingCopyBottom>.mini{
-  margin-top:12px
+  margin-top:16px
 }
 
 @media(max-width:900px){
   .tradingCopyBottom{
-    min-height:auto
-  }
-
-  .tradingCopyBottom>small,
-  .tradingCopyBottom>h2{
-    align-self:stretch
+    min-height:auto;
+    padding:0
   }
 }
 
