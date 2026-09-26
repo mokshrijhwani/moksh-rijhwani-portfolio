@@ -1549,8 +1549,39 @@ main{
   justify-content:flex-end
 }
 
+.tradingCopyBottom>small,
+.tradingCopyBottom>h2{
+  align-self:center;
+  text-align:center
+}
+
+.tradingCopyBottom>small{
+  margin-bottom:4px
+}
+
+.tradingCopyBottom>h2{
+  margin-top:0
+}
+
+.tradingCopyBottom>p{
+  width:100%;
+  max-width:100%;
+  margin:9px 0
+}
+
+.tradingCopyBottom>.mini{
+  margin-top:12px
+}
+
 @media(max-width:900px){
-  .tradingCopyBottom{min-height:auto}
+  .tradingCopyBottom{
+    min-height:auto
+  }
+
+  .tradingCopyBottom>small,
+  .tradingCopyBottom>h2{
+    align-self:stretch
+  }
 }
 
 /* TRADINGVIEW EMBED */
