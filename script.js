@@ -326,6 +326,7 @@ document
   const priceEl = document.getElementById("btcPrice");
   const changeEl = document.getElementById("btcChange");
   const scaleEl = document.getElementById("marketScale");
+  const timeAxisEl = document.getElementById("btcTimeAxis");
   const statusEl = document.getElementById("btcStatus");
 
   if (!canvas) return;
@@ -425,6 +426,14 @@ document
         formatPrice(max) + "<br><br>" +
         formatPrice(mid) + "<br><br>" +
         formatPrice(min);
+    }
+
+    if (timeAxisEl) {
+      const points = [0, Math.floor((visible.length - 1) / 2), visible.length - 1];
+      timeAxisEl.innerHTML = points.map(i => {
+        const date = new Date(visible[i].time);
+        return "<span>" + date.toLocaleTimeString([], {hour:"2-digit", minute:"2-digit"}) + "</span>";
+      }).join("");
     }
   }
 
