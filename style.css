@@ -956,19 +956,26 @@ main{
   display:flex;
   flex-direction:column;
   justify-content:center;
+  align-items:center;
+  text-align:center;
   padding-right:0
 }
 
 .contact>div:first-child h2{
   width:100%;
   max-width:100%;
-  margin:5px 0 16px
+  margin:5px 0 20px
 }
 
 .contact>div:first-child p{
   width:100%;
   max-width:100%;
   margin:9px 0
+}
+
+.contact>div:first-child .social{
+  justify-content:center;
+  margin-top:5px
 }
 
 .contact h2{
