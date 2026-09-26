@@ -823,28 +823,14 @@ RISK TO REWARD
 </div>
 
 
-<div class="market">
-
+<div class="market" aria-label="Live BTCUSDT market chart">
 <div class="marketHeader">
-BTCUSDT
-<span>10</span>
+  <div>BTCUSDT <span class="marketInterval">1m</span></div>
+  <div class="marketPriceWrap"><span id="btcPrice">--</span> <span id="btcChange">--</span></div>
 </div>
-
-<div class="candles"></div>
-
-<div class="line"></div>
-
-<div class="marketScale">
-34,200<br><br>
-34,000<br><br>
-33,800<br><br>
-33,600
-</div>
-
-<div class="marketBottom">
-RSI (14)
-</div>
-
+<canvas id="btcChart" class="btcChart" aria-label="Live Bitcoin price chart"></canvas>
+<div class="marketScale" id="marketScale"></div>
+<div class="marketBottom">BINANCE · LIVE <span id="btcStatus">CONNECTING</span></div>
 </div>
 
 </div>
