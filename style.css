@@ -952,13 +952,11 @@ main{
 }
 
 .contact>div:first-child{
-  width:100%;
+  width:calc(100% + 45px);
   display:flex;
   flex-direction:column;
   justify-content:center;
   padding-right:0
-  ;transform:scaleX(1.08);
-  transform-origin:left center
 }
 
 .contact>div:first-child h2{
