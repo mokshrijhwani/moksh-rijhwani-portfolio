@@ -957,6 +957,8 @@ main{
   flex-direction:column;
   justify-content:center;
   padding-right:0
+  ;transform:scaleX(1.08);
+  transform-origin:left center
 }
 
 .contact>div:first-child h2{
