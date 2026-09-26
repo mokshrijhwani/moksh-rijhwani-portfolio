@@ -946,14 +946,9 @@ main{
 
 .contact{
   display:grid;
-  grid-template-columns:1.4fr .6fr;
-  gap:10px;
+  grid-template-columns:1fr 1fr;
+  gap:35px;
   padding:28px
-}
-
-.contact>div:first-child{
-  width:100%;
-  padding-right:0
 }
 
 .contact h2{
