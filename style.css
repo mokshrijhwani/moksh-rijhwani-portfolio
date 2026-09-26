@@ -708,31 +708,14 @@ main{
   font:700 15px "Barlow Condensed"
 }
 
-.projects .projectTitle{
-  display:flex;
-  align-items:baseline;
-  gap:9px;
-  margin:0 0 3px
-}
-
-.projects .projectTitle>b{
-  flex:0 0 auto;
-  color:var(--orange);
-  font:700 15px "Barlow Condensed"
-}
-
 .projects h3{
-  margin:0;
   font:600 13px/1.05 "Barlow Condensed";
-  letter-spacing:.15px
+  margin:5px 0
 }
 
 .projects em{
-  display:block;
-  margin-left:24px;
   font:9px "Barlow Condensed";
-  font-style:normal;
-  color:#9ca6a9
+  font-style:normal
 }
 
 .projects article>div .projectLogo{
