@@ -315,211 +315,38 @@ document
 
   });
 
-
 /* =========================================================
-   LIVE BTCUSDT CHART
-   Binance public market data: 1-minute candles + live kline stream
+   TRADINGVIEW BTCUSDT ADVANCED CHART
    ========================================================= */
 
 (function () {
-  const canvas = document.getElementById("btcChart");
-  const priceEl = document.getElementById("btcPrice");
-  const changeEl = document.getElementById("btcChange");
-  const scaleEl = document.getElementById("marketScale");
-  const timeAxisEl = document.getElementById("btcTimeAxis");
-  const statusEl = document.getElementById("btcStatus");
+  const container = document.getElementById("tradingview_btc");
+  if (!container) return;
 
-  if (!canvas) return;
-
-  const ctx = canvas.getContext("2d");
-  let candles = [];
-  let liveCandle = null;
-  let previousClose = null;
-  let socket = null;
-
-  function resizeCanvas() {
-    const rect = canvas.getBoundingClientRect();
-    const dpr = window.devicePixelRatio || 1;
-    canvas.width = Math.max(1, Math.floor(rect.width * dpr));
-    canvas.height = Math.max(1, Math.floor(rect.height * dpr));
-    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-    drawChart();
-  }
-
-  function formatPrice(value) {
-    return value >= 1000
-      ? value.toLocaleString("en-US", { maximumFractionDigits: 0 })
-      : value.toFixed(2);
-  }
-
-  function setStatus(text) {
-    if (statusEl) statusEl.textContent = text;
-  }
-
-  function drawChart() {
-    const width = canvas.clientWidth;
-    const height = canvas.clientHeight;
-    if (!width || !height || !candles.length) return;
-
-    ctx.clearRect(0, 0, width, height);
-
-    const visible = candles.slice(-60);
-    if (liveCandle) {
-      if (!visible.length || visible[visible.length - 1].time !== liveCandle.time) {
-        visible.push(liveCandle);
-      } else {
-        visible[visible.length - 1] = liveCandle;
-      }
-    }
-
-    const highs = visible.map(c => c.high);
-    const lows = visible.map(c => c.low);
-    const max = Math.max(...highs);
-    const min = Math.min(...lows);
-    const range = Math.max(max - min, 1);
-    const padTop = 18;
-    const padBottom = 18;
-    const chartHeight = height - padTop - padBottom;
-    const step = width / Math.max(visible.length, 1);
-    const candleWidth = Math.max(3, Math.min(8, step * 0.58));
-
-    function y(value) {
-      return padTop + ((max - value) / range) * chartHeight;
-    }
-
-    visible.forEach((c, i) => {
-      const x = i * step + step / 2;
-      const openY = y(c.open);
-      const closeY = y(c.close);
-      const highY = y(c.high);
-      const lowY = y(c.low);
-      const up = c.close >= c.open;
-
-      ctx.strokeStyle = up ? "#54c48a" : "#d85d42";
-      ctx.fillStyle = up ? "#54c48a" : "#d85d42";
-      ctx.lineWidth = 1;
-
-      ctx.beginPath();
-      ctx.moveTo(x, highY);
-      ctx.lineTo(x, lowY);
-      ctx.stroke();
-
-      const bodyTop = Math.min(openY, closeY);
-      const bodyHeight = Math.max(Math.abs(closeY - openY), 1.5);
-      ctx.fillRect(x - candleWidth / 2, bodyTop, candleWidth, bodyHeight);
-    });
-
-    const last = visible[visible.length - 1];
-    const lastY = y(last.close);
-    ctx.strokeStyle = "#ff6a00";
-    ctx.lineWidth = 1;
-    ctx.setLineDash([4, 4]);
-    ctx.beginPath();
-    ctx.moveTo(0, lastY);
-    ctx.lineTo(width, lastY);
-    ctx.stroke();
-    ctx.setLineDash([]);
-
-    if (scaleEl) {
-      const mid = min + range / 2;
-      scaleEl.innerHTML =
-        formatPrice(max) + "<br><br>" +
-        formatPrice(mid) + "<br><br>" +
-        formatPrice(min);
-    }
-
-    if (timeAxisEl) {
-      const points = [0, Math.floor((visible.length - 1) / 2), visible.length - 1];
-      timeAxisEl.innerHTML = points.map(i => {
-        const date = new Date(visible[i].time);
-        return "<span>" + date.toLocaleTimeString([], {hour:"2-digit", minute:"2-digit"}) + "</span>";
-      }).join("");
-    }
-  }
-
-  async function loadHistory() {
-    setStatus("LOADING");
-    const response = await fetch(
-      "https://api.binance.com/api/v3/klines?symbol=BTCUSDT&interval=5m&limit=60",
-      { cache: "no-store" }
-    );
-
-    if (!response.ok) throw new Error("Unable to load BTC data");
-
-    const rows = await response.json();
-    candles = rows.map(row => ({
-      time: row[0],
-      open: Number(row[1]),
-      high: Number(row[2]),
-      low: Number(row[3]),
-      close: Number(row[4])
-    }));
-
-    if (candles.length) {
-      previousClose = candles.length > 1
-        ? candles[candles.length - 2].close
-        : candles[candles.length - 1].open;
-
-      const last = candles[candles.length - 1];
-      priceEl.textContent = "$" + formatPrice(last.close);
-      drawChart();
-    }
-
-    setStatus("LIVE");
-  }
-
-  function connectStream() {
-    if (socket) socket.close();
-
-    socket = new WebSocket(
-      "wss://stream.binance.com:9443/ws/btcusdt@kline_5m"
-    );
-
-    socket.onopen = () => setStatus("LIVE");
-
-    socket.onmessage = event => {
-      const payload = JSON.parse(event.data);
-      const k = payload.k;
-
-      liveCandle = {
-        time: k.t,
-        open: Number(k.o),
-        high: Number(k.h),
-        low: Number(k.l),
-        close: Number(k.c)
-      };
-
-      const change = previousClose
-        ? ((liveCandle.close - previousClose) / previousClose) * 100
-        : 0;
-
-      if (priceEl) priceEl.textContent = "$" + formatPrice(liveCandle.close);
-      if (changeEl) {
-        changeEl.textContent = (change >= 0 ? "+" : "") + change.toFixed(2) + "%";
-      }
-
-      drawChart();
-
-      if (k.x) {
-        candles.push(liveCandle);
-        candles = candles.slice(-60);
-        previousClose = liveCandle.close;
-        liveCandle = null;
-      }
-    };
-
-    socket.onerror = () => setStatus("RECONNECTING");
-
-    socket.onclose = () => {
-      setStatus("RECONNECTING");
-      setTimeout(connectStream, 3000);
-    };
-  }
-
-  loadHistory()
-    .then(connectStream)
-    .catch(() => setStatus("OFFLINE"));
-
-  window.addEventListener("resize", resizeCanvas);
-  resizeCanvas();
+  const script = document.createElement("script");
+  script.src = "https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js";
+  script.type = "text/javascript";
+  script.async = true;
+  script.innerHTML = JSON.stringify({
+    autosize: true,
+    symbol: "BINANCE:BTCUSDT",
+    interval: "5",
+    timezone: "exchange",
+    theme: "dark",
+    style: "1",
+    locale: "en",
+    allow_symbol_change: false,
+    hide_top_toolbar: false,
+    hide_side_toolbar: false,
+    hide_legend: false,
+    hide_volume: false,
+    withdateranges: true,
+    save_image: false,
+    calendar: false,
+    hotlist: false,
+    details: false,
+    studies: [],
+    support_host: "https://www.tradingview.com"
+  });
+  container.appendChild(script);
 })();
