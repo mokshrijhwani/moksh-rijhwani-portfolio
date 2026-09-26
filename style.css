@@ -718,6 +718,21 @@ main{
   font-style:normal
 }
 
+.projects article>div .projectLogo{
+  width:48px;
+  height:48px;
+  object-fit:contain;
+  display:block;
+  margin:0 auto 7px
+}
+
+.projects article>div span{
+  display:block;
+  color:var(--orange);
+  font:600 30px "Barlow Condensed";
+  line-height:1
+}
+
 .projects article>div{
   height:100px;
   margin:12px 0;
