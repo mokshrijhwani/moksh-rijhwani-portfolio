@@ -664,9 +664,19 @@ main{
 .skills span{
   border:1px solid #29343a;
   min-height:70px;
+  padding:9px 7px;
   display:flex;
+  flex-direction:column;
   align-items:center;
-  justify-content:center
+  justify-content:center;
+  gap:7px
+}
+
+.skills span img{
+  width:30px;
+  height:30px;
+  object-fit:contain;
+  display:block
 }
 
 .skills span b{
