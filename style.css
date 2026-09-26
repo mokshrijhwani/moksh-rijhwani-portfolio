@@ -1370,3 +1370,82 @@ main{
   }
 
 }
+
+
+/* LIVE BTC CHART */
+.marketHeader{
+  z-index:3
+}
+
+.marketHeader>div:first-child{
+  display:flex;
+  align-items:center;
+  gap:8px
+}
+
+.marketInterval{
+  color:#778287;
+  font-size:8px
+}
+
+.marketPriceWrap{
+  color:#fff;
+  text-align:right
+}
+
+#btcPrice{
+  color:var(--orange);
+  font-size:13px
+}
+
+#btcChange{
+  margin-left:5px;
+  color:#54c48a;
+  font-size:8px
+}
+
+.btcChart{
+  position:absolute;
+  inset:35px 80px 55px 25px;
+  width:calc(100% - 105px);
+  height:calc(100% - 90px);
+  display:block
+}
+
+.marketScale{
+  top:55px;
+  bottom:55px;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  line-height:1;
+}
+
+.marketBottom{
+  display:flex;
+  gap:7px;
+  align-items:center
+}
+
+#btcStatus{
+  color:var(--orange)
+}
+
+@media(max-width:900px){
+  .btcChart{
+    right:70px;
+    width:calc(100% - 95px)
+  }
+}
+
+@media(max-width:520px){
+  .btcChart{
+    right:62px;
+    left:18px;
+    width:calc(100% - 80px)
+  }
+
+  #btcPrice{
+    font-size:11px
+  }
+}
