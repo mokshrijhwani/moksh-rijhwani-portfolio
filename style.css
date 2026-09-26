@@ -1539,3 +1539,24 @@ main{
     width:42px
   }
 }
+
+/* TRADINGVIEW EMBED */
+.tradingviewMarket{
+  min-height:360px;
+  height:360px;
+  overflow:hidden;
+  background:#071016
+}
+
+.tradingviewMarket .tradingview-widget-container,
+.tradingviewMarket .tradingview-widget-container__widget{
+  width:100%;
+  height:100%
+}
+
+@media(max-width:520px){
+  .tradingviewMarket{
+    min-height:380px;
+    height:380px
+  }
+}
