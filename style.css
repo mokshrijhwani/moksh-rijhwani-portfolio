@@ -708,24 +708,16 @@ main{
   font:700 15px "Barlow Condensed"
 }
 
-.projects .projectTitle{
-  display:grid;
-  grid-template-columns:22px 1fr;
-  column-gap:7px;
-  align-items:start;
-  margin:0 0 3px
-}
-
-.projects .projectTitle>b{
-  color:var(--orange);
-  font:700 15px "Barlow Condensed";
-  line-height:1.05
-}
-
 .projects h3{
-  margin:0;
+  margin:5px 0;
   font:600 13px/1.05 "Barlow Condensed";
   letter-spacing:.15px
+}
+
+.projects h3>b{
+  color:var(--orange);
+  font:700 15px "Barlow Condensed";
+  margin-right:7px
 }
 
 .projects em{
