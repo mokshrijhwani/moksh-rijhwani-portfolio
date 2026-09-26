@@ -964,13 +964,17 @@ main{
 .contact>div:first-child h2{
   width:100%;
   max-width:100%;
-  margin:5px 0 20px
+  margin:5px 0 24px;
+  font-size:52px;
+  line-height:.92
 }
 
 .contact>div:first-child p{
   width:100%;
   max-width:100%;
-  margin:9px 0
+  margin:11px 0;
+  font-size:13px;
+  line-height:1.5
 }
 
 .contact>div:first-child .social{
