@@ -1547,21 +1547,23 @@ main{
   display:flex;
   flex-direction:column;
   justify-content:center;
-  padding:12px 0 0
-}
-
-.tradingCopyBottom>small,
-.tradingCopyBottom>h2{
-  align-self:center;
-  text-align:center
+  padding:0 0 18px
 }
 
 .tradingCopyBottom>small{
-  margin:0 0 4px
+  align-self:center;
+  text-align:center;
+  font-size:10px;
+  margin:0 0 5px;
+  transform:translateY(-18px)
 }
 
 .tradingCopyBottom>h2{
-  margin:0 0 18px
+  align-self:center;
+  text-align:center;
+  font-size:39px;
+  margin:0 0 18px;
+  transform:translateY(-18px)
 }
 
 .tradingCopyBottom>p{
@@ -1578,6 +1580,15 @@ main{
   .tradingCopyBottom{
     min-height:auto;
     padding:0
+  }
+
+  .tradingCopyBottom>small,
+  .tradingCopyBottom>h2{
+    transform:none
+  }
+
+  .tradingCopyBottom>h2{
+    font-size:34px
   }
 }
 
