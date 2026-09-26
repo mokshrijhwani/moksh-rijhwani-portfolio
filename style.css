@@ -1540,6 +1540,19 @@ main{
   }
 }
 
+/* PAGE 7 CONTENT ALIGNMENT */
+.tradingCopyBottom{
+  align-self:stretch;
+  min-height:360px;
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-end
+}
+
+@media(max-width:900px){
+  .tradingCopyBottom{min-height:auto}
+}
+
 /* TRADINGVIEW EMBED */
 .tradingviewMarket{
   min-height:360px;
