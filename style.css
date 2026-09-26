@@ -703,26 +703,24 @@ main{
   min-height:280px
 }
 
-.projects article>b{
+.projects article>b.projectNumber{
+  display:block;
   color:var(--orange);
-  font:700 15px "Barlow Condensed"
+  font:700 15px "Barlow Condensed";
+  line-height:1;
+  margin:0 0 3px
 }
 
 .projects h3{
-  margin:5px 0;
+  margin:0 0 2px;
+  padding-left:18px;
   font:600 13px/1.05 "Barlow Condensed";
   letter-spacing:.15px
 }
 
-.projects h3>b{
-  color:var(--orange);
-  font:700 15px "Barlow Condensed";
-  margin-right:7px
-}
-
 .projects em{
   display:block;
-  margin-left:29px;
+  margin-left:31px;
   font:9px "Barlow Condensed";
   font-style:normal;
   color:#9ca6a9
