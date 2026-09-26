@@ -713,18 +713,20 @@ main{
 
 .projects h3{
   margin:0 0 3px;
-  padding-left:18px;
+  padding-left:0;
   font:600 13px/1.05 "Barlow Condensed";
   letter-spacing:.15px;
+  text-align:center;
   white-space:normal
 }
 
 .projects em{
   display:block;
-  margin-left:31px;
+  margin-left:0;
   font:italic 9px "Barlow Condensed";
   font-style:italic;
-  color:#9ca6a9
+  color:#9ca6a9;
+  text-align:center
 }
 
 .projects article>div{
