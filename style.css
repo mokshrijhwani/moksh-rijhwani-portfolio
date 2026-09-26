@@ -956,7 +956,19 @@ main{
   display:flex;
   flex-direction:column;
   justify-content:center;
-  min-height:100%
+  padding-right:0
+}
+
+.contact>div:first-child h2{
+  width:100%;
+  max-width:100%;
+  margin:5px 0 16px
+}
+
+.contact>div:first-child p{
+  width:100%;
+  max-width:100%;
+  margin:9px 0
 }
 
 .contact h2{
