@@ -1449,3 +1449,23 @@ main{
     font-size:11px
   }
 }
+
+/* 5M BTC CANDLE VIEW — LARGER CANDLES */
+.btcChart{
+  inset:35px 70px 55px 20px;
+  width:calc(100% - 90px);
+  height:calc(100% - 90px)
+}
+@media(max-width:900px){
+  .btcChart{
+    right:60px;
+    width:calc(100% - 80px)
+  }
+}
+@media(max-width:520px){
+  .btcChart{
+    right:52px;
+    left:15px;
+    width:calc(100% - 67px)
+  }
+}
