@@ -431,7 +431,7 @@ document
   async function loadHistory() {
     setStatus("LOADING");
     const response = await fetch(
-      "https://api.binance.com/api/v3/klines?symbol=BTCUSDT&interval=1m&limit=60",
+      "https://api.binance.com/api/v3/klines?symbol=BTCUSDT&interval=5m&limit=60",
       { cache: "no-store" }
     );
 
@@ -463,7 +463,7 @@ document
     if (socket) socket.close();
 
     socket = new WebSocket(
-      "wss://stream.binance.com:9443/ws/btcusdt@kline_1m"
+      "wss://stream.binance.com:9443/ws/btcusdt@kline_5m"
     );
 
     socket.onopen = () => setStatus("LIVE");
