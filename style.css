@@ -751,7 +751,7 @@ main{
 
 .projects article>div{
   height:100px;
-  margin:15px 0 12px;
+  margin:18px 0 12px;
   border:1px solid #29343a;
   display:grid;
   place-content:center;
