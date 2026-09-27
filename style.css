@@ -772,9 +772,10 @@ main{
 }
 
 .projects p{
-  font-size:9px;
+  font-size:11px;
   color:#8b969a;
-  line-height:1.45
+  line-height:1.45;
+  margin:16px 0 0
 }
 
 .projects article>a{
