@@ -350,3 +350,64 @@ document
   });
   container.appendChild(script);
 })();
+
+
+/* =========================================================
+   CONTACT FORM — EMAIL SUBMISSION
+   ========================================================= */
+
+(function () {
+  const form = document.getElementById("contactForm");
+  if (!form) return;
+
+  form.addEventListener("submit", async event => {
+    event.preventDefault();
+
+    const button = form.querySelector('button[type="submit"]');
+    const originalText = button?.textContent.trim();
+
+    if (button) {
+      button.disabled = true;
+      button.textContent = "SENDING...";
+    }
+
+    try {
+      const payload = Object.fromEntries(new FormData(form).entries());
+
+      const response = await fetch(form.action, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json"
+        },
+        body: JSON.stringify(payload)
+      });
+
+      const result = await response.json();
+
+      if (!response.ok || result.success === false) {
+        throw new Error("Submission failed");
+      }
+
+      form.reset();
+
+      if (button) {
+        button.textContent = "MESSAGE SENT ✓";
+      }
+
+      setTimeout(() => {
+        if (button) {
+          button.disabled = false;
+          button.textContent = originalText || "SEND MESSAGE →";
+        }
+      }, 3500);
+
+    } catch (error) {
+      if (button) {
+        button.disabled = false;
+        button.textContent = "TRY AGAIN →";
+      }
+      console.error("Contact form submission failed:", error);
+    }
+  });
+})();
