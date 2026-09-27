@@ -1023,14 +1023,26 @@ main{
 }
 
 .social a{
-  width:32px;
-  height:32px;
+  width:38px;
+  height:38px;
   border:1px solid #4a3021;
   border-radius:50%;
   display:grid;
   place-items:center;
   color:#fff;
-  text-decoration:none
+  text-decoration:none;
+  font-size:17px;
+  font-weight:700
+}
+
+.social a[aria-label="LinkedIn"]{
+  color:#0a66c2;
+  border-color:#0a66c2
+}
+
+.social a[aria-label="Email"]{
+  color:#ea4335;
+  border-color:#ea4335
 }
 
 .contact form{
