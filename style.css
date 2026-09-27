@@ -427,7 +427,7 @@ main{
 
 .stats small{
   display:block;
-  font:8px "Barlow Condensed";
+  font:10px "Barlow Condensed";
   color:#aeb7ba;
   text-align:center
 }
