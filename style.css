@@ -1045,6 +1045,11 @@ main{
   border-color:#ea4335
 }
 
+.social a:nth-child(3){
+  color:#25d366;
+  border-color:#25d366
+}
+
 .contact form{
   display:grid;
   gap:8px
