@@ -816,46 +816,35 @@ main{
   background-color:#061019;
   background-size:cover;
   background-position:center;
-  box-shadow:inset 0 0 34px #020609,0 0 16px #ff6a0015
-}
-
-.impact>div::before{
-  content:"";
-  position:absolute;
-  inset:0;
-  z-index:-1;
-  background:linear-gradient(180deg,rgba(4,8,11,.30),rgba(4,8,11,.78))
-}
-
-.impact>div b,
-.impact>div small{
-  position:relative;
-  z-index:1
+  box-shadow:inset 0 0 34px #020609,0 0 16px #ff6a0022
 }
 
 .impact .impactSla{
-  background-image:url("assets/impact-visuals/sla-dashboard.svg")
+  background-image:linear-gradient(rgba(4,8,11,.68),rgba(4,8,11,.82)),url("assets/impact-visuals/sla-dashboard.svg")
 }
 
 .impact .impactPeople{
-  background-image:url("assets/impact-visuals/team-leadership.svg")
+  background-image:linear-gradient(rgba(4,8,11,.68),rgba(4,8,11,.82)),url("assets/impact-visuals/team-leadership.svg")
 }
 
 .impact .impactTat{
-  background-image:url("assets/impact-visuals/process-flow.svg")
+  background-image:linear-gradient(rgba(4,8,11,.68),rgba(4,8,11,.82)),url("assets/impact-visuals/process-flow.svg")
 }
 
 .impact .impactProcess{
-  background-image:url("assets/impact-visuals/data-growth.svg")
+  background-image:linear-gradient(rgba(4,8,11,.68),rgba(4,8,11,.82)),url("assets/impact-visuals/data-growth.svg")
 }
 
 .impact b{
-  font:600 39px "Barlow Condensed"
+  font:600 39px "Barlow Condensed";
+  color:#ff6a00;
+  text-shadow:0 0 14px #ff6a0044
 }
 
 .impact small{
-  font:8px "Barlow Condensed";
-  color:#8d989c
+  font:600 10px "Barlow Condensed";
+  letter-spacing:.45px;
+  color:#f4f5f5
 }
 
 .impactBottom{
